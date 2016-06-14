@@ -23,15 +23,18 @@ Meteor.startup(() => {
     ];
 
     let timestamp = (new Date()).getTime();
+    let id = 1;
 
     data.forEach((program) => {
       const programId = Programs.insert({
+        id: id,
         title: program.title,
         description: program.description,
+        like: null,
         created_at: timestamp,
       });
 
-
+    id+=1;
     });
   }
 });
