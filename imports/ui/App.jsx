@@ -11,7 +11,11 @@ import Program from './Program.jsx';
 export default class App extends Component {
 
   renderPrograms() {
-    return this.props.programs.map((program) => (
+    let filteredPrograms = this.props.programs
+    filteredPrograms = filteredPrograms.filter(program => {
+      return program.like === null;
+    })
+    return filteredPrograms.map((program) => (
       <Program key={program._id} program={program} />
     ));
   }
