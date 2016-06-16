@@ -18,12 +18,8 @@ export default class DecisionBox extends Component {
 export default class ProgramDecision extends Component {
   handleClick(event) {
     event.preventDefault();
-    Programs.upsert({
-      _id: this.props.programId
-    }, {
-      $set: {
-        like: this.props.answer
-      }
+    Programs.update( this.props.programId, {
+      $set: { like: this.props.answer },
     });
   }
 
@@ -32,7 +28,7 @@ export default class ProgramDecision extends Component {
       <a className="right" href="#" onClick={this.handleClick.bind(this)}>{this.props.answer}</a>
     )
   }
-} 
+}
 
 export default class Program extends Component {
   render() {
