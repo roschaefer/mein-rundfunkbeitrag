@@ -31,7 +31,7 @@ Meteor.startup(() => {
         title: program.title,
         description: program.description,
         like: null,
-        created_at: timestamp,
+        createdAt: timestamp,
       });
 
     id+=1;
