@@ -47,8 +47,8 @@ export default class Program extends Component {
       <span className="card-title">{this.props.program.title}</span>
       <p>{this.props.program.description}</p>
       <div className="card-action">
-              <a href="#" onClick={this.handleYes.bind(this)}>Yes</a>
-              <a href="#" onClick={this.handleNo.bind(this)}>No</a>
+              <a className="right" href="#" onClick={this.handleNo.bind(this)}>No</a>
+              <a className="right" href="#" onClick={this.handleYes.bind(this)}>Yes</a>
       </div>
       </div>
       </div>
