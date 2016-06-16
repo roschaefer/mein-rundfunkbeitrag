@@ -5,36 +5,36 @@ import ReactDOM from 'react-dom';
 
 import { Programs } from '../api/programs.js'
 
+export default class DecisionBox extends Component {
+  render() {
+    return (
+      <div className="card-action">
+      <ProgramDecision programId={this.props.programId} answer="No"/>
+      <ProgramDecision programId={this.props.programId} answer="Yes"/>
+      </div>
+    )
+  }
+}
+export default class ProgramDecision extends Component {
+  handleClick(event) {
+    event.preventDefault();
+    Programs.upsert({
+      _id: this.props.programId
+    }, {
+      $set: {
+        like: this.props.answer
+      }
+    });
+  }
+
+  render() {
+    return (
+      <a className="right" href="#" onClick={this.handleClick.bind(this)}>{this.props.answer}</a>
+    )
+  }
+} 
+
 export default class Program extends Component {
-  handleYes(event) {
-
-    event.preventDefault();
-    const id = ReactDOM.findDOMNode(this.refs.programId).innerText.trim();
-    Programs.upsert({
-      _id: id
-    }, {
-      $set: {
-        like: "Yes"
-      }
-    });
-
-  }
-
-  handleNo(event) {
-
-    event.preventDefault();
-    const id = ReactDOM.findDOMNode(this.refs.programId).innerText.trim();
-    Programs.upsert({
-      _id: id
-    }, {
-      $set: {
-        like: "No"
-      }
-    });
-
-  }
-
-
   render() {
     return (
       <li>
@@ -42,14 +42,10 @@ export default class Program extends Component {
       <div className="col s12 m6">
       <div className="card teal darken-1">
       <div className="card-content white-text">
-      <div ref="programId">{this.props.program._id}</div>
       <div>Like? {this.props.program.like}</div>
       <span className="card-title">{this.props.program.title}</span>
       <p>{this.props.program.description}</p>
-      <div className="card-action">
-              <a className="right" href="#" onClick={this.handleNo.bind(this)}>No</a>
-              <a className="right" href="#" onClick={this.handleYes.bind(this)}>Yes</a>
-      </div>
+      <DecisionBox programId={this.props.program._id}/>
       </div>
       </div>
       </div>
