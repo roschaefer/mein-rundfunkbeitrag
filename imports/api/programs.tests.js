@@ -4,10 +4,12 @@ import { Meteor } from 'meteor/meteor';
 
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { expect } from 'meteor/practicalmeteor:chai';
+import React from 'react';
+import { shallow } from 'enzyme';
+import faker from 'faker';
 
 import { Programs } from './programs.js';
 
-import faker from 'faker';
 
 Factory.define('program', Programs, {
     title: () => faker.lorem.sentence(),
