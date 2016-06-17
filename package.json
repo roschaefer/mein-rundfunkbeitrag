@@ -1,5 +1,5 @@
 {
-  "name": "meinRundfunkbeitrag",
+  "name": "mein-rundfunkbeitrag",
   "private": true,
   "scripts": {
     "start": "meteor run"
