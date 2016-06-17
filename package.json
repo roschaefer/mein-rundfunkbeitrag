@@ -2,7 +2,9 @@
   "name": "mein-rundfunkbeitrag",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "lint": "eslint .; exit 0",
+    "pretest": "npm run lint --silent"
   },
   "dependencies": {
     "meteor-node-stubs": "~0.2.0",
@@ -19,5 +21,30 @@
     "eslint-plugin-meteor": "^3.6.0",
     "eslint-plugin-react": "^5.2.1",
     "react-addons-test-utils": "^15.1.0"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "meteor"
+    ],
+    "extends": [
+      "airbnb",
+      "plugin:meteor/recommended"
+    ],
+    "rules": {
+      "meteor/eventmap-params": [
+        2,
+        {
+          "templateInstanceParamName": "instance"
+        }
+      ],
+      "import/no-unresolved": [
+        2,
+        {
+          "ignore": [
+            "^meteor/"
+          ]
+        }
+      ]
+    }
   }
 }
