@@ -24,3 +24,5 @@ react-meteor-data
 practicalmeteor:mocha
 xolvio:cleaner
 dburles:factory
+aldeed:simple-schema
+aldeed:collection2
