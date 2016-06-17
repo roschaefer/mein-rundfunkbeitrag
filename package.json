@@ -12,6 +12,12 @@
   },
   "devDependencies": {
     "enzyme": "^2.3.0",
+    "eslint": "^2.12.0",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-meteor": "^3.6.0",
+    "eslint-plugin-react": "^5.2.1",
     "react-addons-test-utils": "^15.1.0"
   }
 }
