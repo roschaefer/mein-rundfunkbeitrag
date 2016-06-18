@@ -38,7 +38,6 @@ export default class ProgramItem extends Component {
       <div className="col s12 m6">
       <div className="card teal darken-1">
       <div className="card-content white-text">
-      <div>Like? {this.props.program.like}</div>
       <span className="card-title">{this.props.program.title}</span>
       <p>{this.props.program.description}</p>
       <DecisionBox programId={this.props.program._id}/>
