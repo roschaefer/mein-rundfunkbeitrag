@@ -1,4 +1,6 @@
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
+import { check } from 'meteor/check';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Factory } from 'meteor/dburles:factory';
 import faker from 'faker';
@@ -21,6 +23,21 @@ Programs.schema = new SimpleSchema({
   },
 });
 Programs.attachSchema(Programs.schema);
+
+Meteor.methods({
+  'programs.decide'(programId, answer) {
+    check(programId, String);
+
+    Programs.update( programId, {
+      $set: { like: answer },
+    });
+  },
+});
+
+
+
+
+
 
 Factory.define('program', Programs, {
   title: faker.lorem.word(),

@@ -18,9 +18,7 @@ export default class DecisionBox extends Component {
 export default class ProgramDecision extends Component {
   handleClick(event) {
     event.preventDefault();
-    Programs.update( this.props.programId, {
-      $set: { like: this.props.answer },
-    });
+    Meteor.call('programs.decide', this.props.programId, this.props.answer);
   }
 
   render() {
