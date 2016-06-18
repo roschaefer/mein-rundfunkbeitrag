@@ -5,7 +5,7 @@ import { Programs } from '../api/programs.js';
 
 
 
-import Program from './Program.jsx';
+import ProgramItem from './ProgramItem.jsx';
 
 // App component - represents the whole app
 export default class App extends Component {
@@ -16,7 +16,7 @@ export default class App extends Component {
       return program.like === null;
     })
     return filteredPrograms.map((program) => (
-      <Program key={program._id} program={program} />
+      <ProgramItem key={program._id} program={program} />
     ));
   }
 
@@ -24,7 +24,7 @@ export default class App extends Component {
     return (
       <div className="container">
         <header>
-          <h1>Program List</h1>
+          <h1>Programs</h1>
         </header>
 
         <ul>

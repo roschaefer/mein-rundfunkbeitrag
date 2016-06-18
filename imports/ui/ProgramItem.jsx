@@ -30,7 +30,7 @@ export default class ProgramDecision extends Component {
   }
 }
 
-export default class Program extends Component {
+export default class ProgramItem extends Component {
   render() {
     return (
       <li>
@@ -51,7 +51,7 @@ export default class Program extends Component {
   }
 }
 
-Program.propTypes = {
+ProgramItem.propTypes = {
   // This component gets the task to display through a React prop.
   // We can use propTypes to indicate it is required
   program: PropTypes.object.isRequired,
