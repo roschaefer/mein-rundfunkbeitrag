@@ -2,6 +2,7 @@
 /* eslint-disable func-names, prefer-arrow-callback */
 
 import { Meteor } from 'meteor/meteor';
+import { Factory } from 'meteor/dburles:factory';
 import { expect } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 
@@ -16,14 +17,9 @@ if (Meteor.isServer) {
     describe('properties', function () {
       describe('createdAt', function () {
         it('must be Date', function () {
-          const programData = {
-            title: 'Heute-Show',
-            description: 'Satire-Sendung',
-            like: null,
-            createdAt: 'Not a timestamp',
-          }
-
-          expect(Programs.insert.bind(Programs, programData)).to.throw("Created at must be a Date");
+          expect(Factory.create.bind(Factory, 'program', {
+            createdAt: 'Not a timestamp'
+          })).to.throw('Created at must be a Date');
         });
       });
     });
