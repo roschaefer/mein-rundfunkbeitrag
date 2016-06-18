@@ -4,7 +4,8 @@
   "scripts": {
     "start": "meteor run",
     "lint": "eslint .; exit 0",
-    "pretest": "npm run lint --silent"
+    "pretest": "npm run lint --silent",
+    "test": "meteor test --driver-package practicalmeteor:mocha --port 3100"
   },
   "dependencies": {
     "faker": "^3.1.0",
