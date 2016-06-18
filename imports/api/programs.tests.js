@@ -18,7 +18,7 @@ if (Meteor.isServer) {
       describe('createdAt', function () {
         it('must be Date', function () {
           expect(Factory.create.bind(Factory, 'program', {
-            createdAt: 'Not a timestamp'
+            createdAt: 'Not a timestamp',
           })).to.throw('Created at must be a Date');
         });
       });
