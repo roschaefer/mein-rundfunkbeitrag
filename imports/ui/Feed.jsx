@@ -38,5 +38,5 @@ export default class Feed extends Component {
 Feed.propTypes = {
   // This component gets the task to display through a React prop.
   // We can use propTypes to indicate it is required
-  programs: PropTypes.object.isRequired,
+  programs: PropTypes.array.isRequired,
 };
