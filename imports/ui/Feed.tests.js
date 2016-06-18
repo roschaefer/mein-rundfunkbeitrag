@@ -17,8 +17,8 @@ if (Meteor.isClient) {
     });
 
     it('shows remaining programs', function () {
-      const program = Factory.create('program');
-      const programs = Programs.find({}).fetch();
+      const program = Factory.build('program');
+      const programs = [program];
       const item = shallow(<Feed programs={programs} />);
       expect(item.text()).to.contain('Remaining Programs: 1');
     });
