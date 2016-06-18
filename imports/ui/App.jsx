@@ -24,6 +24,8 @@ export default class App extends Component {
 
 
 export default createContainer(() => {
+  Meteor.subscribe('programs');
+
   return {
     programs: Programs.find({}).fetch(),
   };

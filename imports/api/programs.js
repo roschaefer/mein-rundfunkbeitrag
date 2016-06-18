@@ -36,6 +36,13 @@ Meteor.methods({
 
 
 
+if (Meteor.isServer) {
+  // This code only runs on the server
+  Meteor.publish('programs', function programsPublication() {
+    return Programs.find();
+  });
+}
+ 
 
 
 
