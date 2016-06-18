@@ -5,12 +5,16 @@ import { Programs } from '../api/programs.js'
 import ProgramItem from './ProgramItem.jsx';
 
 export default class Feed extends Component {
-  renderPrograms() {
+  filteredPrograms() {
     let filteredPrograms = this.props.programs
     filteredPrograms = filteredPrograms.filter(program => {
       return program.like === null;
     })
-    return filteredPrograms.map((program) => (
+    return filteredPrograms;
+  }
+
+  renderPrograms() {
+    return this.filteredPrograms().map((program) => (
       <ProgramItem key={program._id} program={program} />
     ));
   }
@@ -18,9 +22,9 @@ export default class Feed extends Component {
   render() {
     return (
       <div className="container">
-        <header>
-          <h1>Programs</h1>
-        </header>
+      <div className="row">
+      <h3 className="col s12">Remaining Programs: {this.filteredPrograms().length}</h3>
+      </div>
 
         <ul className="program-list">
           {this.renderPrograms()}
