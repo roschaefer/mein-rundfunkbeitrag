@@ -8,7 +8,6 @@ import { expect } from 'meteor/practicalmeteor:chai';
 import Feed from './Feed.jsx';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 
-import { Programs } from '../api/programs.js';
 
 if (Meteor.isClient) {
   describe('Feed', function ()  {

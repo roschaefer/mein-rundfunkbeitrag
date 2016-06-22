@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Programs } from '../api/programs.js'
 import ProgramItem from './ProgramItem.jsx';
 
 export default class Feed extends Component {
@@ -21,18 +20,18 @@ export default class Feed extends Component {
 
   render() {
     return (
-      <div className="container">
+    <div>
       <div className="row">
-      <h3 className="col s12">Remaining Programs: {this.filteredPrograms().length}</h3>
+        <h3 className="col s12">Remaining Programs: {this.filteredPrograms().length}</h3>
       </div>
-
-        <ul className="program-list">
-          {this.renderPrograms()}
-        </ul>
-      </div>
+      <ul className="program-list">
+      { this.renderPrograms() }
+      </ul>
+    </div>
     );
   }
 }
+
 
 
 Feed.propTypes = {

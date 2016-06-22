@@ -2,9 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 
-
-import { Programs } from '../api/programs.js'
-
 export default class DecisionBox extends Component {
   render() {
     return (
