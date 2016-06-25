@@ -8,6 +8,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
+      <h3>mein Rundfunkbeitrag</h3>
         {this.props.children}
       </div>
     );

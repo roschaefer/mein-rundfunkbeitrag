@@ -15,10 +15,10 @@ if (Meteor.isClient) {
     });
 
 
-    describe('first step', function () {
-      it('shows filter', function () {
+    describe('layout', function () {
+      it('shows title', function () {
         const item = shallow(<App/>);
-        expect(item.text()).to.contain('Choose Filters');
+        expect(item.text()).to.contain('mein Rundfunkbeitrag');
       });
     });
   });
