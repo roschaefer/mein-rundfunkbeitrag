@@ -5,14 +5,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Factory } from 'meteor/dburles:factory';
 import faker from 'faker';
 
-export const Programs = new Mongo.Collection('Programs',{
-  transform: function (doc) {
-    doc.isDecided = function () {
-      return (this.like !== null);
-    };
-    return doc;
-  }
-});
+export const Programs = new Mongo.Collection('Programs');
 
 Programs.schema = new SimpleSchema({
   title: {
@@ -58,4 +51,11 @@ Factory.define('program', Programs, {
   description: faker.lorem.text(),
   like: null,
   createdAt: () => new Date(),
+});
+
+
+Programs.helpers({
+  isDecided() {
+    return this.like !== null;
+  },
 });
