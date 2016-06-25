@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import ProgramItem from './ProgramItem.jsx';
 
-export default class Feed extends Component {
+export default class Summary extends Component {
   chosenPrograms() {
     let chosenPrograms = this.props.programs
     chosenPrograms = chosenPrograms.filter(program => {
@@ -34,7 +34,7 @@ export default class Feed extends Component {
 
 
 
-Feed.propTypes = {
+Summary.propTypes = {
   // This component gets the task to display through a React prop.
   // We can use propTypes to indicate it is required
   programs: PropTypes.array.isRequired,
