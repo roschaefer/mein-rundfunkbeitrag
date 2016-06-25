@@ -14,6 +14,13 @@ if (Meteor.isServer) {
       resetDatabase();
     });
 
+    describe('isDecided', function () {
+      it('true if not null', function () {
+        const program = Factory.create('program', {'like': 'Yes'});
+        expect(program.isDecided()).to.equal(true);
+      });
+    });
+
     describe('properties', function () {
       describe('createdAt', function () {
         it('must be Date', function () {

@@ -5,7 +5,14 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Factory } from 'meteor/dburles:factory';
 import faker from 'faker';
 
-export const Programs = new Mongo.Collection('Programs');
+export const Programs = new Mongo.Collection('Programs',{
+  transform: function (doc) {
+    doc.isDecided = function () {
+      return (this.like !== null);
+    };
+    return doc;
+  }
+});
 
 Programs.schema = new SimpleSchema({
   title: {
