@@ -4,8 +4,10 @@ import { Meteor } from 'meteor/meteor';
 import { Factory } from 'meteor/dburles:factory';
 import React from 'react';
 import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { expect } from 'meteor/practicalmeteor:chai';
 import ProgramItem from './ProgramItem.jsx';
+import DecisionBox from './ProgramItem.jsx';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 
 if (Meteor.isClient) {
@@ -18,6 +20,14 @@ if (Meteor.isClient) {
       const program = Factory.build('program', { title: 'Heute-Show', like: null });
       const item = shallow(<ProgramItem program={program} />);
       expect(item.text()).to.contain('Heute-Show');
+    });
+
+    context('when already decided on', function () {
+      it('does not show actions', function () {
+        const program = Factory.build('program', { like: 'No'});
+        const item = mount(<ProgramItem program={program} />);
+        expect(item.find(DecisionBox)).to.have.length(0);
+      });
     });
   });
 }
