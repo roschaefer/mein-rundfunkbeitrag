@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 export default class DecisionBox extends Component {
   render() {
     return (
-      <div className="card-action">
+      <div className="card-action decision-box">
       <ProgramDecision programId={this.props.programId} answer="No"/>
       <ProgramDecision programId={this.props.programId} answer="Yes"/>
       </div>
@@ -26,6 +26,16 @@ export default class ProgramDecision extends Component {
 }
 
 export default class ProgramItem extends Component {
+  showDecisionBox() {
+    if (this.props.program.isDecided()) {
+      return null;
+    } else {
+      return (
+        <DecisionBox programId={this.props.program._id}/>
+      );
+    }
+  }
+
   render() {
     return (
       <li>
@@ -35,7 +45,7 @@ export default class ProgramItem extends Component {
       <div className="card-content white-text">
       <span className="card-title">{this.props.program.title}</span>
       <p>{this.props.program.description}</p>
-      <DecisionBox programId={this.props.program._id}/>
+      { this.showDecisionBox() }
       </div>
       </div>
       </div>

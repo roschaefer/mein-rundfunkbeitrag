@@ -9,6 +9,7 @@ import { expect } from 'meteor/practicalmeteor:chai';
 import ProgramItem from './ProgramItem.jsx';
 import DecisionBox from './ProgramItem.jsx';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
+import { Programs } from '../../api/programs.js';
 
 if (Meteor.isClient) {
   describe('ProgramItem', function () {
@@ -17,16 +18,16 @@ if (Meteor.isClient) {
     });
 
     it('contains title', function () {
-      const program = Factory.build('program', { title: 'Heute-Show', like: null });
+      const program = Programs._transform(Factory.build('program', { title: 'Heute-Show', like: null }));
       const item = shallow(<ProgramItem program={program} />);
       expect(item.text()).to.contain('Heute-Show');
     });
 
     context('when already decided on', function () {
-      it('does not show actions', function () {
-        const program = Factory.build('program', { like: 'No'});
+      it('does not show decision box', function () {
+        const program = Programs._transform(Factory.build('program', { like: 'No'}));
         const item = mount(<ProgramItem program={program} />);
-        expect(item.find(DecisionBox)).to.have.length(0);
+        expect(item.find('.decision-box')).to.have.length(0);
       });
     });
   });
