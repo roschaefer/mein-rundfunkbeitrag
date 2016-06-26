@@ -5,6 +5,8 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Factory } from 'meteor/dburles:factory';
 import faker from 'faker';
 
+import { Programs } from './programs';
+
 export const Selections = new Mongo.Collection('Selections');
 
 Selections.schema = new SimpleSchema({
@@ -16,9 +18,8 @@ Selections.schema = new SimpleSchema({
     type: String,
     regEx: SimpleSchema.RegEx.Id,
   },
-  like: {
+  selected: {
     type: String,
-    optional: true,
   },
   createdAt: {
     type: Date,
@@ -38,8 +39,16 @@ if (Meteor.isServer) {
 
 
 Factory.define('selection', Selections, {
-  like: null,
+  program: Factory.get('program'),
+  selected: 'Yes',
   createdAt: () => new Date(),
 });
 
-
+Selections.helpers({
+    user: function () {
+      return Meteor.users.findOne(this.userId);
+    },
+    program: function () {
+      return Programs.findOne(this.programId);
+    },
+});
