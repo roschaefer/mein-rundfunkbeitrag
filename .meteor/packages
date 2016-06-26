@@ -26,3 +26,5 @@ aldeed:collection2
 static-html
 dburles:collection-helpers
 hwillson:stub-collections
+accounts-password
+accounts-ui
