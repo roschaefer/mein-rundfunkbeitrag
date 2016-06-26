@@ -9,10 +9,14 @@ export default class Focus extends Component {
 
   render() {
     return (
-    <div>
+      <div>
       <FilterList />
-      <Link to="/decide">Choose programs</Link>
-    </div>
+      <Link to="/decide">
+      <button class="btn waves-effect waves-light" type="submit" name="action">
+        Continue
+      </button>
+      </Link>
+      </div>
     );
   }
 }

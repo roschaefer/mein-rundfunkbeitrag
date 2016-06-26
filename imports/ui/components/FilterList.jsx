@@ -19,7 +19,7 @@ export default class FilterList extends Component {
     <div>
       <h1>Choose Filters</h1>
       <div className="row">
-        <h3 className="col s12">Relevant Programs: {this.relevantPrograms().length}</h3>
+        <p className="flow-text col s12">{this.relevantPrograms().length} programs match the criteria</p>
       </div>
     </div>
     );

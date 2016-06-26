@@ -29,7 +29,7 @@ if (Meteor.isClient) {
         Factory.create('program', {'like': null});
         Factory.create('program', {'like': null});
         const item = mount(<FilterList/>);
-        expect(item.text()).to.contain('Relevant Programs: 3');
+        expect(item.text()).to.contain('3 programs match the criteria');
       });
 
       it('relevant programs are new to the user', function () {
@@ -37,7 +37,7 @@ if (Meteor.isClient) {
         Factory.create('program', {'like': 'No'});
         Factory.create('program', {'like': null});
         const item = mount(<FilterList/>);
-        expect(item.text()).to.contain('Relevant Programs: 1');
+        expect(item.text()).to.contain('1 programs match the criteria');
       });
     });
 

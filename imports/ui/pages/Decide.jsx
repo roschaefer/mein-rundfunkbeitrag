@@ -13,7 +13,11 @@ export default class Decide extends Component {
     return (
       <div>
         <Feed programs={this.props.programs} />
-        <Link to="/assign">Assign money</Link>
+        <Link to="/assign">
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+        Assign money
+        </button>
+        </Link>
       </div>
     );
   }
