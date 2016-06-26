@@ -16,6 +16,13 @@ Clone the repository:
 git clone https://github.com/roschaefer/mein-rundfunkbeitrag.git
 ```
 
+Install dependencies:
+
+```
+cd mein-rundfunkbeitrag
+meteor npm install
+```
+
 
 ## Usage
 
