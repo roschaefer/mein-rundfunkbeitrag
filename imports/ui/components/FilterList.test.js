@@ -31,6 +31,14 @@ if (Meteor.isClient) {
         const item = mount(<FilterList/>);
         expect(item.text()).to.contain('Relevant Programs: 3');
       });
+
+      it('relevant programs are new to the user', function () {
+        Factory.create('program', {'like': 'Yes'});
+        Factory.create('program', {'like': 'No'});
+        Factory.create('program', {'like': null});
+        const item = mount(<FilterList/>);
+        expect(item.text()).to.contain('Relevant Programs: 1');
+      });
     });
 
   });
