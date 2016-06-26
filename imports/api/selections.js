@@ -23,10 +23,29 @@ Selections.schema = new SimpleSchema({
   },
   createdAt: {
     type: Date,
+    autoValue: function(){
+      if (this.isInsert) {
+        return new Date();
+      }
+    },
   },
 });
 Selections.attachSchema(Selections.schema);
 
+
+Meteor.methods({
+  'selections.choose'(uid, pid, answer) {
+    check(uid, String);
+    check(pid, String);
+    check(answer, String);
+
+    Selections.insert( {
+      userId: uid,
+      programId: pid,
+      selected: answer,
+    });
+  },
+});
 
 if (Meteor.isServer) {
   // This code only runs on the server
