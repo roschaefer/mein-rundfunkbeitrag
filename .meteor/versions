@@ -49,8 +49,8 @@ less@2.6.3_1
 livedata@1.0.18
 localstorage@1.0.11
 logging@1.0.13_1
-materialize:materialize@0.97.5
-mdg:validation-error@0.2.0
+materialize:materialize@0.97.6
+mdg:validation-error@0.5.1
 meteor@1.1.15_1
 meteor-base@1.0.4
 minifier-css@1.1.12_1
@@ -68,7 +68,7 @@ observe-sequence@1.0.12
 ordered-dict@1.0.8
 practicalmeteor:chai@2.1.0_1
 practicalmeteor:loglevel@1.2.0_2
-practicalmeteor:mocha@2.4.5_3
+practicalmeteor:mocha@2.4.5_4
 practicalmeteor:mocha-core@1.0.0
 practicalmeteor:sinon@1.14.1_2
 promise@0.7.2_1
@@ -92,7 +92,7 @@ standard-minifier-js@1.0.7_1
 static-html@1.0.10_1
 templating@1.1.12_1
 templating-tools@1.0.4
-tmeasday:check-npm-versions@0.2.0
+tmeasday:check-npm-versions@0.3.1
 tmeasday:test-reporter-helpers@0.2.1
 tracker@1.0.14
 ui@1.0.11
