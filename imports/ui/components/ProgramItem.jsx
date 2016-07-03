@@ -15,12 +15,12 @@ export default class DecisionBox extends Component {
 export default class ProgramDecision extends Component {
   handleClick(event) {
     event.preventDefault();
-    Meteor.call('programs.decide', this.props.programId, this.props.answer);
+    Meteor.call('selections.choose', this.props.programId, this.props.answer);
   }
 
   render() {
     return (
-      <a className="right" href="#" onClick={this.handleClick.bind(this)}>{this.props.answer}</a>
+      <a className="right" href="#" answer={this.props.answer} onClick={this.handleClick.bind(this)}>{this.props.answer}</a>
     )
   }
 }

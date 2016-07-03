@@ -8,13 +8,22 @@ import { mount } from 'enzyme';
 import { expect } from 'meteor/practicalmeteor:chai';
 import ProgramItem from './ProgramItem.jsx';
 import DecisionBox from './ProgramItem.jsx';
+import ProgramDecision from './ProgramItem.jsx';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
-import { Programs } from '../../api/programs.js';
+import { Programs } from '../../api/programs';
+import { Selections } from '../../api/selections';
+//import StubCollections from 'meteor/hwillson:stub-collections';
 
 if (Meteor.isClient) {
   describe('ProgramItem', function () {
     beforeEach(function () {
+      //StubCollections.stub(Selections);
+      //StubCollections.stub(Accounts);
       resetDatabase();
+    });
+
+    afterEach(function () {
+      //StubCollections.restore();
     });
 
     it('contains title', function () {
@@ -23,12 +32,23 @@ if (Meteor.isClient) {
       expect(item.text()).to.contain('Heute-Show');
     });
 
-    context('when already decided on', function () {
-      it('does not show decision box', function () {
-        const program = Programs._transform(Factory.build('program', { like: 'No'}));
+
+    describe('click on yes', function () {
+
+      it('creates new selection', function () {
+        const uid = Accounts.createUser({
+          username: 'pete',
+          password: '1234',
+        });
+        const program = Programs._transform(Factory.build('program', { title: 'Heute-Show', like: null }));
         const item = mount(<ProgramItem program={program} />);
-        expect(item.find('.decision-box')).to.have.length(0);
+        Meteor.loginWithPassword('pete','1234', function () {
+          expect(Meteor.userId()).to.exist;
+        });
+        item.find('[answer=\'Yes\']').simulate('click');
+        expect(Selections.find().count()).to.equal(1);
       });
     });
+
   });
 }
