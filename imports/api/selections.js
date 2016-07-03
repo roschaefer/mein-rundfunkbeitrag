@@ -32,15 +32,22 @@ Selections.schema = new SimpleSchema({
 });
 Selections.attachSchema(Selections.schema);
 
+// separate function for stubbing purposes
+Selections.thisUserId = function() {
+  return this.userId
+};
+
 
 Meteor.methods({
-  'selections.choose'(uid, pid, answer) {
-    check(uid, String);
+  'selections.choose'(pid, answer) {
+    if (! Selections.thisUserId()) {
+      throw new Meteor.Error('not-authorized');
+    }
     check(pid, String);
     check(answer, String);
 
     Selections.insert( {
-      userId: uid,
+      userId: Selections.thisUserId(),
       programId: pid,
       selected: answer,
     });

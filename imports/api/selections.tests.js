@@ -5,6 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { Factory } from 'meteor/dburles:factory';
 import { expect } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
+import { sinon } from 'meteor/practicalmeteor:sinon';
 
 import { Selections } from './selections';
 import { Programs } from './programs';
@@ -45,19 +46,30 @@ if (Meteor.isServer) {
         });
       });
 
-    });
 
-    describe('selections.choose', function () {
-      it('creates a new selection', function () {
+      context('when logged in', function () {
+        beforeEach(function () {
           const uid = Accounts.createUser({
             username: 'pete',
             password: '1234',
           });
-          const pid = Factory.create('program')._id;
-          Meteor.call('selections.choose', uid, pid, 'Yes');
-          expect(Selections.find().fetch().length).to.equal(1);
+          sinon.stub(Selections, 'thisUserId', function () {
+            return uid;
+          });
+        });
+
+        afterEach(function () {
+          Selections.thisUserId.restore();
+        });
+
+        describe('selections.choose', function () {
+          it('creates a new selection', function () {
+            const pid = Factory.create('program')._id;
+            Meteor.call('selections.choose', pid, 'Yes');
+            expect(Selections.find().fetch().length).to.equal(1);
+          });
+        });
       });
     });
-
   });
 }
