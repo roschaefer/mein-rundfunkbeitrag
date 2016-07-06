@@ -12,18 +12,11 @@ import ProgramDecision from './ProgramItem.jsx';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { Programs } from '../../api/programs';
 import { Selections } from '../../api/selections';
-//import StubCollections from 'meteor/hwillson:stub-collections';
 
 if (Meteor.isClient) {
   describe('ProgramItem', function () {
     beforeEach(function () {
-      //StubCollections.stub(Selections);
-      //StubCollections.stub(Accounts);
       resetDatabase();
-    });
-
-    afterEach(function () {
-      //StubCollections.restore();
     });
 
     it('contains title', function () {
@@ -35,18 +28,16 @@ if (Meteor.isClient) {
 
     describe('click on yes', function () {
 
-      it('creates new selection', function () {
-        const uid = Accounts.createUser({
-          username: 'pete',
-          password: '1234',
-        });
+      it.skip('should create a new selection', function () {
+        sinon.stub(choose, 'call');
         const program = Programs._transform(Factory.build('program', { title: 'Heute-Show', like: null }));
         const item = mount(<ProgramItem program={program} />);
-        Meteor.loginWithPassword('pete','1234', function () {
-          expect(Meteor.userId()).to.exist;
-        });
         item.find('[answer=\'Yes\']').simulate('click');
         expect(Selections.find().count()).to.equal(1);
+        sinon.assert.calledWith(choose.call, {
+          programId: program._id,
+          answer: 'Yes',
+        });
       });
     });
 
