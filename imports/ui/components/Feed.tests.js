@@ -26,7 +26,7 @@ if (Meteor.isClient) {
     });
 
     context('given user decided on a program', function () {
-      it('doesn\'t contain programs with a selection', function () {
+      it('doesn\'t show programs with a selection', function () {
       const program = Programs._transform(Factory.build('program', {title: "Heute Show"}));
       const chosen_program = Programs._transform(Factory.build('program', {title: "Neo Magazin Royale"}));
       const programs = [program, chosen_program];
