@@ -65,10 +65,10 @@ Factory.define('selection', Selections, {
 });
 
 Selections.helpers({
-    user: function () {
+    user() {
       return Meteor.users.findOne(this.userId);
     },
-    program: function () {
+    program() {
       return Programs.findOne(this.programId);
     },
 });

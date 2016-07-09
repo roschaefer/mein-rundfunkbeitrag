@@ -5,10 +5,16 @@ import ProgramItem from './ProgramItem.jsx';
 
 export default class Summary extends Component {
   chosenPrograms() {
-    let chosenPrograms = this.props.programs
-    chosenPrograms = chosenPrograms.filter(program => {
-      return program.like === 'Yes';
-    })
+    let liked_selections = this.props.selections
+    let liked_selections = liked_selections.filter(selection => {
+      return selection.answer === 'Yes';
+    });
+    let chosenPrograms = liked_selections.map(selection => {
+      return selection.program();
+    });
+    chosenPrograms = _.uniq(chosenPrograms, program => {
+      return program._id;
+    });
     return chosenPrograms;
   }
 
@@ -37,5 +43,5 @@ export default class Summary extends Component {
 Summary.propTypes = {
   // This component gets the task to display through a React prop.
   // We can use propTypes to indicate it is required
-  programs: PropTypes.array.isRequired,
+  selections: PropTypes.array.isRequired,
 };

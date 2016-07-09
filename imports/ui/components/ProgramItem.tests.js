@@ -29,11 +29,11 @@ if (Meteor.isClient) {
     describe('click on yes', function () {
 
       it.skip('should create a new selection', function () {
+        // TODO: implement
         sinon.stub(choose, 'call');
         const program = Programs._transform(Factory.build('program', { title: 'Heute-Show', like: null }));
         const item = mount(<ProgramItem program={program} />);
-        item.find('[answer=\'Yes\']').simulate('click');
-        expect(Selections.find().count()).to.equal(1);
+        item.find("[class='answer-yes']").simulate('click');
         sinon.assert.calledWith(choose.call, {
           programId: program._id,
           answer: 'Yes',
