@@ -9,7 +9,7 @@ export default class Feed extends Component {
     let visiblePrograms = this.props.programs
     visiblePrograms = visiblePrograms.filter(program => {
       return selections.every(selection => {
-        return selection.programId !== program._id
+        return (selection.userId !== Meteor.userId()) || (selection.programId !== program._id)
       });
     })
     return visiblePrograms;
