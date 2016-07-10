@@ -12,7 +12,7 @@ export default class Focus extends Component {
       <div>
       <FilterList />
       <Link to="/decide">
-      <button class="btn waves-effect waves-light" type="submit" name="action">
+      <button className="btn waves-effect waves-light" type="submit" name="action">
         Continue
       </button>
       </Link>

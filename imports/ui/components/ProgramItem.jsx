@@ -15,7 +15,7 @@ export default class DecisionBox extends Component {
 export default class ProgramDecision extends Component {
   handleClick(event) {
     event.preventDefault();
-    Meteor.call('programs.decide', this.props.programId, this.props.answer);
+    Meteor.call('selections.choose', this.props.programId, this.props.answer);
   }
 
   render() {
@@ -27,12 +27,12 @@ export default class ProgramDecision extends Component {
 
 export default class ProgramItem extends Component {
   showDecisionBox() {
-    if (this.props.program.isDecided()) {
-      return null;
-    } else {
+    if (this.props.decisionbox) {
       return (
         <DecisionBox programId={this.props.program._id}/>
       );
+    } else {
+      return null;
     }
   }
 
@@ -59,4 +59,5 @@ ProgramItem.propTypes = {
   // This component gets the task to display through a React prop.
   // We can use propTypes to indicate it is required
   program: PropTypes.object.isRequired,
+  decisionbox: PropTypes.bool,
 };

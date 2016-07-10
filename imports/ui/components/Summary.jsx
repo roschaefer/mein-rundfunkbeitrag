@@ -5,10 +5,13 @@ import ProgramItem from './ProgramItem.jsx';
 
 export default class Summary extends Component {
   chosenPrograms() {
-    let chosenPrograms = this.props.programs
-    chosenPrograms = chosenPrograms.filter(program => {
-      return program.like === 'Yes';
-    })
+    let liked_selections = this.props.selections
+    liked_selections = liked_selections.filter(selection => {
+      return (selection.userId === Meteor.userId()) && (selection.selected === 'Yes');
+    });
+    let chosenPrograms = liked_selections.map(selection => {
+      return selection.program();
+    });
     return chosenPrograms;
   }
 
@@ -37,5 +40,5 @@ export default class Summary extends Component {
 Summary.propTypes = {
   // This component gets the task to display through a React prop.
   // We can use propTypes to indicate it is required
-  programs: PropTypes.array.isRequired,
+  selections: PropTypes.array.isRequired,
 };
