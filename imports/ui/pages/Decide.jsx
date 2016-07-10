@@ -15,7 +15,7 @@ export default class Decide extends Component {
       <div>
         <Feed programs={this.props.programs} selections={this.props.selections} />
         <Link to="/assign">
-        <button class="btn waves-effect waves-light" type="submit" name="action">
+        <button className="btn waves-effect waves-light" type="submit" name="action">
         Assign money
         </button>
         </Link>
