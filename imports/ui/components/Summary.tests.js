@@ -40,7 +40,7 @@ if (Meteor.isClient) {
           chosen_program = Factory.create('program', {title: "Neo Magazin Royale"});
           programs = [program, chosen_program];
           selection = Factory.create('selection', {
-            userId: uid, programId: chosen_program._id, answer: "Yes"
+            userId: uid, programId: chosen_program._id, selected: "Yes"
           });
           selection.program = function () {
             // TODO: find out why we have to define this in test enviroment
@@ -55,9 +55,16 @@ if (Meteor.isClient) {
           expect(item.text()).to.contain('Chosen Programs: 1');
         });
 
+        it('does not show selected programs of other users', function () {
+          selection.userId = "whatever";
+          const selections = [selection];
+          const item = shallow(<Summary selections={selections} />);
+          expect(item.text()).to.contain('Chosen Programs: 0');
+        });
+
         it('does not show disliked programs', function () {
           const disliked_selection = Factory.create('selection', {
-            userId: uid, programId: program._id, answer: "No"
+            userId: uid, programId: program._id, selected: "No"
           });
           disliked_selection.program = function () {
             // TODO: find out why we have to define this in test enviroment

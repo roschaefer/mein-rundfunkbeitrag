@@ -6,14 +6,11 @@ import ProgramItem from './ProgramItem.jsx';
 export default class Summary extends Component {
   chosenPrograms() {
     let liked_selections = this.props.selections
-    let liked_selections = liked_selections.filter(selection => {
-      return selection.answer === 'Yes';
+    liked_selections = liked_selections.filter(selection => {
+      return (selection.userId === Meteor.userId()) && (selection.selected === 'Yes');
     });
     let chosenPrograms = liked_selections.map(selection => {
       return selection.program();
-    });
-    chosenPrograms = _.uniq(chosenPrograms, program => {
-      return program._id;
     });
     return chosenPrograms;
   }
