@@ -25,6 +25,20 @@ if (Meteor.isClient) {
       expect(item.text()).to.contain('Heute-Show');
     });
 
+    describe('<DecisionBox>', function () {
+      it('visible if set via props', function () {
+        const program = Programs._transform(Factory.build('program'));
+        const item = mount(<ProgramItem decisionbox={true} program={program} />);
+        expect(item.find(DecisionBox)).to.have.length(1);
+      });
+
+      it('invisible if not set via props', function () {
+        const program = Programs._transform(Factory.build('program'));
+        const item = mount(<ProgramItem program={program} />);
+        expect(item.find(DecisionBox)).to.have.length(0);
+      });
+    });
+
 
     describe('click on yes', function () {
 

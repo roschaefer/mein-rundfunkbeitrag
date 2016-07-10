@@ -20,6 +20,10 @@ Programs.schema = new SimpleSchema({
 });
 Programs.attachSchema(Programs.schema);
 
+Meteor.methods({
+});
+
+
 
 if (Meteor.isServer) {
   // This code only runs on the server
@@ -35,4 +39,8 @@ Factory.define('program', Programs, {
   title: faker.lorem.word(),
   description: faker.lorem.text(),
   createdAt: () => new Date(),
+});
+
+
+Programs.helpers({
 });

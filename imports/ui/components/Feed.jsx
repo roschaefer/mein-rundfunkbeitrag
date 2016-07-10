@@ -17,7 +17,7 @@ export default class Feed extends Component {
 
   renderPrograms() {
     return this.visiblePrograms().map((program) => (
-      <ProgramItem key={program._id} program={program} />
+      <ProgramItem decisionbox={true} key={program._id} program={program} />
     ));
   }
 
