@@ -28,7 +28,6 @@ Meteor.startup(() => {
       Programs.insert({
         title: program.title,
         description: program.description,
-        like: null,
         createdAt: timestamp,
       });
     });

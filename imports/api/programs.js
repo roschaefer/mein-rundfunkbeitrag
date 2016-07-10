@@ -14,26 +14,11 @@ Programs.schema = new SimpleSchema({
   description: {
     type: String,
   },
-  like: {
-    type: String,
-    optional: true,
-  },
   createdAt: {
     type: Date,
   },
 });
 Programs.attachSchema(Programs.schema);
-
-Meteor.methods({
-  'programs.decide'(programId, answer) {
-    check(programId, String);
-
-    Programs.update( programId, {
-      $set: { like: answer },
-    });
-  },
-});
-
 
 
 if (Meteor.isServer) {
@@ -49,13 +34,5 @@ if (Meteor.isServer) {
 Factory.define('program', Programs, {
   title: faker.lorem.word(),
   description: faker.lorem.text(),
-  like: null,
   createdAt: () => new Date(),
-});
-
-
-Programs.helpers({
-  isDecided() {
-    return this.like !== null;
-  },
 });

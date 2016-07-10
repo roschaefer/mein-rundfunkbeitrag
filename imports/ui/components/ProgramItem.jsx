@@ -27,13 +27,9 @@ export default class ProgramDecision extends Component {
 
 export default class ProgramItem extends Component {
   showDecisionBox() {
-    if (this.props.program.isDecided()) {
-      return null;
-    } else {
-      return (
-        <DecisionBox programId={this.props.program._id}/>
-      );
-    }
+    return (
+      <DecisionBox programId={this.props.program._id}/>
+    );
   }
 
   render() {

@@ -8,9 +8,6 @@ import { Programs } from '../../api/programs.js';
 export default class FilterList extends Component {
   relevantPrograms() {
     let filteredPrograms = this.props.programs
-    filteredPrograms = filteredPrograms.filter(program => {
-      return program.like === null;
-    })
     return filteredPrograms;
   }
 

@@ -20,7 +20,7 @@ if (Meteor.isClient) {
     });
 
     it('contains title', function () {
-      const program = Programs._transform(Factory.build('program', { title: 'Heute-Show', like: null }));
+      const program = Programs._transform(Factory.build('program', { title: 'Heute-Show'}));
       const item = shallow(<ProgramItem program={program} />);
       expect(item.text()).to.contain('Heute-Show');
     });
@@ -31,7 +31,7 @@ if (Meteor.isClient) {
       it.skip('should create a new selection', function () {
         // TODO: implement
         sinon.stub(choose, 'call');
-        const program = Programs._transform(Factory.build('program', { title: 'Heute-Show', like: null }));
+        const program = Programs._transform(Factory.build('program', { title: 'Heute-Show'}));
         const item = mount(<ProgramItem program={program} />);
         item.find("[class='answer-yes']").simulate('click');
         sinon.assert.calledWith(choose.call, {
