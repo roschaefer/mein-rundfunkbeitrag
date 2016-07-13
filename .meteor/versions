@@ -8,6 +8,7 @@ aldeed:schema-deny@1.0.1
 aldeed:schema-index@1.0.1
 aldeed:simple-schema@1.5.3
 allow-deny@1.0.5
+artwells:accounts-guest@0.1.13
 autoupdate@1.2.11
 babel-compiler@6.8.4
 babel-runtime@0.1.9_1
@@ -17,6 +18,8 @@ blaze@2.1.8
 blaze-html-templates@1.0.4
 blaze-tools@1.0.9
 boilerplate-generator@1.0.9
+brettle:accounts-login-state@0.0.4
+brettle:accounts-patch-ui@0.1.13
 caching-compiler@1.0.6
 caching-html-compiler@1.0.6
 callback-hook@1.0.9
