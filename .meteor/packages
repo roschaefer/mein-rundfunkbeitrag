@@ -30,3 +30,6 @@ accounts-ui
 blaze-html-templates
 practicalmeteor:sinon
 tmeasday:acceptance-test-driver
+artwells:accounts-guest
+check
+random
