@@ -5,6 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { Factory } from 'meteor/dburles:factory';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { _ } from 'meteor/underscore';
+import { Programs } from './programs';
 
 
 // Remember to double check this is a test-only file before
@@ -20,6 +21,10 @@ Meteor.methods({
       password: password,
     });
     return uid;
+  },
+
+  createProgram(attributes) {
+    return Factory.create('program', attributes);
   },
 
 });

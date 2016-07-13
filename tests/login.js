@@ -13,7 +13,7 @@ describe('Login', function() {
       server.apply('createAccount', ['johndoe', 'password']);
     });
 
-    it('I can login as this user @watch', function () {
+    it('I can login as this user', function () {
       browser.waitForExist('#login-sign-in-link');
       browser.click('#login-sign-in-link');
       browser.setValue('input[id="login-username"]', 'johndoe');
