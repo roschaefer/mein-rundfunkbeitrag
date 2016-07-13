@@ -9,7 +9,8 @@ describe('Login', function() {
   context('given a user exists', function () {
     beforeEach(function () {
       browser.url('http://localhost:3000');
-      server.call('generateFixtures');
+      server.call('resetDatabase');
+      server.apply('createAccount', ['johndoe', 'password']);
     });
 
     it('I can login as this user @watch', function () {
