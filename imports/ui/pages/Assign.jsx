@@ -11,9 +11,12 @@ export default class Assign extends Component {
 
   render() {
     return (
-    <div>
-      <Summary selections={this.props.selections} />
-    </div>
+      <div>
+        <div className='help-message'>
+          <p> Enter the desired amount of money for each program. </p>
+        </div>
+        <Summary selections={this.props.selections} />
+      </div>
     );
   }
 }
