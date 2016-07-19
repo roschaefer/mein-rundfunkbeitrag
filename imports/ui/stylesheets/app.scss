@@ -1,0 +1,7 @@
+@import "{}/node_modules/animatewithsass/animate.scss";
+
+.help-message {
+  @extend .flow-text;
+  @include fadeInLeft();
+
+}
