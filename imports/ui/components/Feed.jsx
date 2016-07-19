@@ -24,6 +24,10 @@ export default class Feed extends Component {
   render() {
     return (
     <div>
+      <div className='help-message'>
+        <p> Now, you can decide whether you want to give money to a program. </p>
+        <p> Simply click on <em>Yes</em> or <em>No.</em> </p>
+      </div>
       <div className="row">
         <h3 className="col s12">Remaining Programs: {this.visiblePrograms().length}</h3>
       </div>

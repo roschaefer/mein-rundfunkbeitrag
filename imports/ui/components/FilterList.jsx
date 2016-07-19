@@ -14,9 +14,13 @@ export default class FilterList extends Component {
   render() {
     return (
     <div>
+      <div className='help-message'>
+        <p> First, reduce the number of programs. </p>
+        <p> Choose some filters. </p>
+      </div>
       <h1>Choose Filters</h1>
       <div className="row">
-        <p className="flow-text col s12">{this.relevantPrograms().length} programs match the criteria</p>
+        <p className="col s12">{this.relevantPrograms().length} programs match the criteria</p>
       </div>
     </div>
     );
