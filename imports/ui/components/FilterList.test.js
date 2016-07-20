@@ -24,10 +24,10 @@ if (Meteor.isClient) {
 
 
     it('shows the total number of remaining programs', function () {
-      Factory.create('program');
-      Factory.create('program');
-      Factory.create('program');
-      const item = mount(<FilterList/>);
+      const programs = [1,2,3].map((index) => {
+        Factory.build('program')
+      });
+      const item = mount(<FilterList programs={programs} categories={[]}/>);
       expect(item.text()).to.contain('3 programs match the criteria');
     });
 

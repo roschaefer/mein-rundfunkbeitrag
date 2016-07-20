@@ -4,10 +4,6 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import FilterItem from './FilterItem.jsx';
 
-import { Programs } from '../../api/programs.js';
-import { Categories } from '../../api/categories.js';
-
-
 export default class FilterList extends Component {
   renderFilters() {
     let handleFilter = function(category) {
@@ -45,11 +41,7 @@ export default class FilterList extends Component {
   }
 }
 
-export default createContainer(() => {
-  Meteor.subscribe('programs');
-  Meteor.subscribe('categories');
-  return {
-    programs: Programs.find({}).fetch(),
-    categories: Categories.find({}).fetch(),
-  };
-}, FilterList);
+FilterList.propTypes = {
+  programs: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired
+}
