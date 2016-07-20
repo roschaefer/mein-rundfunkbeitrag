@@ -20,7 +20,7 @@ export default class ProgramDecision extends Component {
 
   render() {
     return (
-      <a className="selection-choose right" href="#" onClick={this.handleClick.bind(this)}>{this.props.answer}</a>
+      <a className="selection-choose right btn-large col s5 m3 flow-text" href="#" onClick={this.handleClick.bind(this)}>{this.props.answer}</a>
     )
   }
 }
