@@ -5,21 +5,26 @@ import { createContainer } from 'meteor/react-meteor-data';
 import FilterItem from './FilterItem.jsx';
 
 export default class FilterList extends Component {
-  renderFilters() {
-    let handleFilter = function(category) {
-      console.log('You clicked: ' + category.name);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {filters: props.initialFilters};
+  }
 
+  updateFilters(category) {
+    this.setState({filters: [category._id]});
+  }
+
+  renderFilters() {
     return this.props.categories.map((category) => (
-      <FilterItem filterFunction={handleFilter.bind(this, category)} key={category._id} category={category} />
+      <FilterItem filterFunction={this.updateFilters.bind(this, category)} key={category._id} category={category} />
     ));
   }
 
   relevantPrograms() {
     let filteredPrograms = this.props.programs
-    if (this.props.filters) {
+    if (this.state.filters) {
       filteredPrograms = filteredPrograms.filter(program => {
-        return (this.props.filters.indexOf(program.categoryId) >= 0) // includes?
+        return (this.state.filters.indexOf(program.categoryId) >= 0) // includes?
       });
     }
     return filteredPrograms;
@@ -38,9 +43,11 @@ export default class FilterList extends Component {
       </div>
 
 
-      <form action="#">
-        { this.renderFilters() }
-      </form>
+      <p>
+        <form action="#">
+          { this.renderFilters() }
+        </form>
+      </p>
     </div>
     );
   }
@@ -49,5 +56,5 @@ export default class FilterList extends Component {
 FilterList.propTypes = {
   programs: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired,
-  filters: PropTypes.array,
+  initialFilters: PropTypes.array,
 }

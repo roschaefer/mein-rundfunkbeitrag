@@ -42,7 +42,7 @@ if (Meteor.isClient) {
           return Factory.build('program', {categoryId})
         });
         console.log(programs);
-        const item = mount(<FilterList programs={programs} filters={[1]} categories={[]}/>);
+        const item = mount(<FilterList programs={programs} initialFilters={[1]} categories={[]}/>);
         expect(item.text()).to.contain('2 programs match the criteria');
       });
     });
