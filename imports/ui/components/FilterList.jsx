@@ -17,6 +17,11 @@ export default class FilterList extends Component {
 
   relevantPrograms() {
     let filteredPrograms = this.props.programs
+    if (this.props.filters) {
+      filteredPrograms = filteredPrograms.filter(program => {
+        return (this.props.filters.indexOf(program.categoryId) >= 0) // includes?
+      });
+    }
     return filteredPrograms;
   }
 
@@ -43,5 +48,6 @@ export default class FilterList extends Component {
 
 FilterList.propTypes = {
   programs: PropTypes.array.isRequired,
-  categories: PropTypes.array.isRequired
+  categories: PropTypes.array.isRequired,
+  filters: PropTypes.array,
 }

@@ -25,7 +25,7 @@ if (Meteor.isClient) {
 
     it('shows the total number of remaining programs', function () {
       const programs = [1,2,3].map((index) => {
-        Factory.build('program')
+        return Factory.build('program')
       });
       const item = mount(<FilterList programs={programs} categories={[]}/>);
       expect(item.text()).to.contain('3 programs match the criteria');
@@ -37,11 +37,13 @@ if (Meteor.isClient) {
 
     context('with filters activated', function () {
       it('reduces program count', function () {
-        const titles = ['foo', 'bar', 'baz'];
-        const programs = titles.map((title) => {
-          Factory.build('program', {title})
+        const categoryIds= [1, 2, 1];
+        const programs = categoryIds.map((categoryId) => {
+          return Factory.build('program', {categoryId})
         });
         console.log(programs);
+        const item = mount(<FilterList programs={programs} filters={[1]} categories={[]}/>);
+        expect(item.text()).to.contain('2 programs match the criteria');
       });
     });
 
