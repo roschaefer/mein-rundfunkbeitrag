@@ -34,6 +34,8 @@ ddp-rate-limiter@1.0.5
 ddp-server@1.2.10
 deps@1.0.12
 diff-sequence@1.0.6
+dispatch:mocha-phantomjs@0.1.7
+dispatch:phantomjs-tests@0.0.5
 ecmascript@0.4.8
 ecmascript-runtime@0.2.12
 ejson@1.0.12
@@ -72,8 +74,6 @@ observe-sequence@1.0.12
 ordered-dict@1.0.8
 poetic:materialize-scss@1.97.6_1
 practicalmeteor:chai@2.1.0_1
-practicalmeteor:loglevel@1.2.0_2
-practicalmeteor:mocha@2.4.5_6
 practicalmeteor:mocha-core@1.0.1
 practicalmeteor:sinon@1.14.1_2
 promise@0.7.3
@@ -98,7 +98,6 @@ templating@1.1.14
 templating-tools@1.0.4
 tmeasday:acceptance-test-driver@0.1.0
 tmeasday:check-npm-versions@0.3.1
-tmeasday:test-reporter-helpers@0.2.1
 tracker@1.0.15
 ui@1.0.11
 underscore@1.0.9
