@@ -27,5 +27,9 @@ Meteor.methods({
     return Factory.create('program', attributes);
   },
 
+  createCategory(attributes) {
+    return Factory.create('category', attributes);
+  },
+
 });
 

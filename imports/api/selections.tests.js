@@ -22,7 +22,8 @@ if (Meteor.isServer) {
       let programId;
 
       beforeEach(function () {
-        programId = Factory.create('program', { userId })._id;
+        categoryId = Factory.create('category')._id;
+        programId = Factory.create('program', { userId, categoryId })._id;
       });
 
       describe('program', function () {
