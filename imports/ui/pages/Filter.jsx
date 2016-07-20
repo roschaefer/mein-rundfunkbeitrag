@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 import FilterList from '../components/FilterList.jsx';
 
-export default class Focus extends Component {
+export default class Filter extends Component {
 
   render() {
     return (

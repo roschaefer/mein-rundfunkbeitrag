@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import Filter from './Filter.jsx';
+import FilterItem from './FilterItem.jsx';
 
 import { Programs } from '../../api/programs.js';
 import { Categories } from '../../api/categories.js';
@@ -10,8 +10,12 @@ import { Categories } from '../../api/categories.js';
 
 export default class FilterList extends Component {
   renderFilters() {
+    let handleFilter = function(category) {
+      console.log('You clicked: ' + category.name);
+    }
+
     return this.props.categories.map((category) => (
-      <Filter key={category._id} category={category} />
+      <FilterItem filterFunction={handleFilter.bind(this, category)} key={category._id} category={category} />
     ));
   }
 

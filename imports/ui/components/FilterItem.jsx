@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 
 
-export default class Filter extends Component {
+export default class FilterItem extends Component {
 
   render() {
     return (
@@ -15,7 +15,7 @@ export default class Filter extends Component {
   }
 }
 
-Filter.propTypes = {
+FilterItem.propTypes = {
   // This component gets the task to display through a React prop.
   // We can use propTypes to indicate it is required
   category: PropTypes.object.isRequired,

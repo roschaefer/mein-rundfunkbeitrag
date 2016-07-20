@@ -23,17 +23,25 @@ if (Meteor.isClient) {
     });
 
 
-    context('after applying the filters', function () {
-      it('shows the total number of remaining programs', function () {
-        Factory.create('program');
-        Factory.create('program');
-        Factory.create('program');
-        const item = mount(<FilterList/>);
-        expect(item.text()).to.contain('3 programs match the criteria');
-      });
+    it('shows the total number of remaining programs', function () {
+      Factory.create('program');
+      Factory.create('program');
+      Factory.create('program');
+      const item = mount(<FilterList/>);
+      expect(item.text()).to.contain('3 programs match the criteria');
+    });
 
-      it.skip('relevant programs are new to the user', function () {
-        // TODO: implement
+    it.skip('relevant programs are new to the user', function () {
+      // TODO: implement
+    });
+
+    context('with filters activated', function () {
+      it('reduces program count', function () {
+        const titles = ['foo', 'bar', 'baz'];
+        const programs = titles.map((title) => {
+          Factory.build('program', {title})
+        });
+        console.log(programs);
       });
     });
 
