@@ -5,7 +5,7 @@
 /* globals browser assert server */
 
 
-describe('Help messages @watch', function() {
+describe('Help messages', function() {
   const base_url = 'http://localhost:3000';
 
   describe('Welcome Page', function() {
