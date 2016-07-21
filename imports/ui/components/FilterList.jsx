@@ -46,7 +46,7 @@ export default class FilterList extends Component {
 
 
       <p>
-        <form action="#">
+        <form action="#" className='filter-list'>
           { this.renderFilters() }
         </form>
       </p>

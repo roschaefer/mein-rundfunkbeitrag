@@ -19,7 +19,7 @@ export default class Filter extends Component {
       </div>
       <FilterList categories={this.props.categories} programs={this.props.programs}/>
       <Link to="/decide">
-      <button className="btn waves-effect waves-light" type="submit" name="action">
+      <button className="btn waves-effect waves-light continue" type="submit" name="action">
         Continue
       </button>
       </Link>

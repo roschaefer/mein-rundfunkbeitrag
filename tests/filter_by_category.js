@@ -18,7 +18,7 @@ describe('Filter by category', function() {
     server.apply('createProgram',[{title: "Heute-Journal", categoryId: news._id } ]);
   });
 
-  describe('Number of programs matching the criteria @watch', function() {
+  describe('Number of programs matching the criteria', function() {
     it('get reduced when filters are selected', function () {
       browser.url(base_url);
       browser.waitUntil(function () {
@@ -32,9 +32,11 @@ describe('Filter by category', function() {
   });
 
   describe('List of programs to choose', function() {
-    it('is subset of programs filtered by category', function () {
-      const filters = '?category=News';
-      browser.url(base_url + '/decide/' + filters);
+    it('is subset of programs filtered by category @watch', function () {
+      browser.url(base_url);
+      browser.waitForVisible('.filter-list');
+      browser.click('label[for="News"]');
+      browser.click('.continue');
       browser.waitForVisible('.program-list', 1000);
       expect(
         browser.getText('.program-title')[0]
