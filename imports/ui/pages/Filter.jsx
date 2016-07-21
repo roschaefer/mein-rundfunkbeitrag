@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Link } from 'react-router';
 
 import FilterList from '../components/FilterList.jsx';
 
@@ -18,11 +17,6 @@ export default class Filter extends Component {
       <p> You decide where your money should go to. </p>
       </div>
       <FilterList categories={this.props.categories} programs={this.props.programs}/>
-      <Link to="/decide">
-      <button className="btn waves-effect waves-light continue" type="submit" name="action">
-        Continue
-      </button>
-      </Link>
       </div>
     );
   }

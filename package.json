@@ -5,7 +5,7 @@
     "start": "meteor run",
     "lint": "eslint .; exit 0",
     "pretest": "npm run lint --silent",
-    "test": "meteor test --once --driver-package dispatch:mocha-phantomjs",
+    "test": "meteor test --once --driver-package dispatch:mocha-phantomjs --port 3100",
     "test:watch": "TEST_WATCH=1 meteor test --driver-package dispatch:mocha-phantomjs --port 3100",
     "chimp": "chimp --mocha --path=tests",
     "chimp:watch": "chimp --ddp=http://localhost:3000 --watch --mocha --path=tests",

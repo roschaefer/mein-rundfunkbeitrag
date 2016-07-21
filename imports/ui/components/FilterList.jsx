@@ -1,17 +1,25 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
+import { Link } from 'react-router';
 
 import FilterItem from './FilterItem.jsx';
 
 export default class FilterList extends Component {
   constructor(props) {
     super(props);
-    this.state = {filters: props.initialFilters};
+    this.state = {filters: (props.initialFilters || [])};
   }
 
   updateFilters(category) {
-    this.setState({filters: [category._id]});
+    this.setState({filters: [category]});
+  }
+  decisionUrl() {
+    let result = "/decide?";
+    this.state.filters.forEach((category) => {
+      result += "category=" + category.name;
+    });
+    return result;
   }
 
   renderFilters() {
@@ -22,9 +30,11 @@ export default class FilterList extends Component {
 
   relevantPrograms() {
     let filteredPrograms = this.props.programs
-    if (this.state.filters) {
+    if (this.state.filters.length) {
       filteredPrograms = filteredPrograms.filter(program => {
-        return (this.state.filters.indexOf(program.categoryId) >= 0) // includes?
+        return this.state.filters.some((category) => {
+          category._id === program.categoryId;
+        });
       });
     }
     return filteredPrograms;
@@ -50,6 +60,12 @@ export default class FilterList extends Component {
           { this.renderFilters() }
         </form>
       </p>
+
+      <Link to={this.decisionUrl()}>
+      <button className="btn waves-effect waves-light continue" type="submit" name="action">
+        Continue
+      </button>
+      </Link>
     </div>
     );
   }
