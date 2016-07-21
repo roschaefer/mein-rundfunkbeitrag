@@ -12,8 +12,10 @@ export default class Assign extends Component {
   render() {
     return (
       <div>
-        <div className='help-message'>
-          <p> Enter the desired amount of money for each program. </p>
+        <div className='row'>
+          <div className='help-message col s8 m8'>
+            <p> Almost done! Please say how much money should be spend on each program. You can spread money across multiple programs or specify the amount individually. </p>
+          </div>
         </div>
         <Summary selections={this.props.selections} />
       </div>

@@ -9,7 +9,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
-      <h3>mein Rundfunkbeitrag</h3>
+      <h2>mein Rundfunkbeitrag</h2>
         <AccountsUIWrapper />
         {this.props.children}
       </div>

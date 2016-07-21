@@ -43,23 +43,27 @@ export default class FilterList extends Component {
   render() {
     return (
     <div>
-      <div className='help-message'>
-        <p> First, reduce the number of programs. </p>
-        <p> Choose some filters. </p>
+      <h4>Filters</h4>
+      <div className='row'>
+        <div className='help-message col s8 m8'>
+          <p> There are so many programs available. In order to narrow down choices, click on the filter options below. </p>
+        </div>
       </div>
-      <h1>Choose Filters</h1>
-      <div className="row">
-        <p className="col s12">
-          <em id='program-counter'>{this.relevantPrograms().length}</em> programs match the criteria
-        </p>
-      </div>
-
 
       <p>
         <form action="#" className='filter-list'>
+        <p>
+          <em>by category</em>
+        </p>
           { this.renderFilters() }
         </form>
       </p>
+      <div className="row">
+        <h5 className="col s12">
+          <em id='program-counter'>{this.relevantPrograms().length}</em> programs match the criteria
+        </h5>
+      </div>
+
 
       <Link to={this.decisionUrl()}>
       <button className="btn waves-effect waves-light continue" type="submit" name="action">

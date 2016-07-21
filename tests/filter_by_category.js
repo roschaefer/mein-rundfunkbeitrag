@@ -35,7 +35,9 @@ describe('Filter by category', function() {
     beforeEach(function() {
       browser.url(base_url);
       browser.waitForVisible('.filter-list');
+      browser.waitForExist('label[for="News"]');
       browser.click('label[for="News"]');
+      browser.waitForExist('.continue');
       browser.click('.continue');
     });
 

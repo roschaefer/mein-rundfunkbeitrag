@@ -13,7 +13,7 @@ describe('Help messages', function() {
       browser.url(base_url);
 
       const message = browser.getText('.help-message');
-      expect(message).to.match(/you decide where your money should go to/i);
+      expect(message).to.match(/tell the public where your money should go to/i);
     });
   });
 
@@ -21,8 +21,8 @@ describe('Help messages', function() {
     it('explains the filters', function () {
       browser.url(base_url + '/filter');
       const message = browser.getText('.help-message');
-      expect(message).to.match(/first, reduce the number of programs/i);
-      expect(message).to.match(/choose some filters/i);
+      expect(message).to.match(/narrow down choices/i);
+      expect(message).to.match(/click on the filter options/i);
     });
   });
 
@@ -39,7 +39,7 @@ describe('Help messages', function() {
     it('tells me to assign money to particular programs', function () {
       browser.url(base_url + '/assign');
       const message = browser.getText('.help-message');
-      expect(message).to.match(/enter the desired amount of money for each program/i);
+      expect(message).to.match(/say how much money should be spend on each program/i);
     });
   });
 });
