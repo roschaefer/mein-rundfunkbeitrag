@@ -33,7 +33,7 @@ export default class FilterList extends Component {
     if (this.state.filters.length) {
       filteredPrograms = filteredPrograms.filter(program => {
         return this.state.filters.some((category) => {
-          category._id === program.categoryId;
+          return (category._id === program.categoryId);
         });
       });
     }
