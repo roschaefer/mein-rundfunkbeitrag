@@ -39,7 +39,9 @@ export default class FilterList extends Component {
       </div>
       <h1>Choose Filters</h1>
       <div className="row">
-        <p className="col s12">{this.relevantPrograms().length} programs match the criteria</p>
+        <p className="col s12">
+          <em id='program-counter'>{this.relevantPrograms().length}</em> programs match the criteria
+        </p>
       </div>
 
 

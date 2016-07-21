@@ -5,28 +5,28 @@
 /* globals browser assert server */
 
 
-describe('Filter by category @watch', function() {
+describe('Filter by category', function() {
   const base_url = 'http://localhost:3000';
 
   beforeEach(function () {
     browser.url('http://localhost:3000');
     server.call('resetDatabase');
-    const news_id = server.apply('createCategory',[{name: "News"}]);
-    const sport_id = server.apply('createCategory',[{name: "Sport"}]);
-    server.apply('createProgram',[{title: "Tagesschau"   , category_id: news_id } ]);
-    server.apply('createProgram',[{title: "Sportschau"   , category_id: sport_id } ]);
-    server.apply('createProgram',[{title: "Heute-Journal", category_id: news_id } ]);
+    const news = server.apply('createCategory',[{name: "News"}]);
+    const sport = server.apply('createCategory',[{name: "Sport"}]);
+    server.apply('createProgram',[{title: "Tagesschau"   , categoryId: news._id } ]);
+    server.apply('createProgram',[{title: "Sportschau"   , categoryId: sport._id } ]);
+    server.apply('createProgram',[{title: "Heute-Journal", categoryId: news._id } ]);
   });
 
-  describe('Number of programs matching the criteria', function() {
+  describe('Number of programs matching the criteria @watch', function() {
     it('get reduced when filters are selected', function () {
       browser.url(base_url);
       browser.waitUntil(function () {
-          return browser.getText('#program-counter').equals('3')
+          return browser.getText('#program-counter') === '3'
       }, 1000, 'expected 3 programs matching the criteria');
-      browser.click("News");
+      browser.click('label[for="News"]');
       browser.waitUntil(function () {
-          return browser.getText('#program-counter').equals('2')
+          return browser.getText('#program-counter') === '2'
       }, 1000, 'expected 2 programs matching the criteria');
     });
   });
