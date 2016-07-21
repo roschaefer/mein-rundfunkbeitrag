@@ -43,7 +43,7 @@ export default class ProgramItem extends Component {
       <div className="col s12 m6">
       <div className="card teal darken-1">
       <div className="card-content white-text">
-      <span className="card-title">{this.props.program.title}</span>
+      <span className="program-title card-title">{this.props.program.title}</span>
       <p>{this.props.program.description}</p>
       { this.showDecisionBox() }
       </div>

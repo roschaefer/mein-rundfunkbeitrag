@@ -5,6 +5,8 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Factory } from 'meteor/dburles:factory';
 import faker from 'faker';
 
+import { Categories } from './categories';
+
 export const Programs = new Mongo.Collection('Programs');
 
 Programs.schema = new SimpleSchema({
@@ -13,6 +15,10 @@ Programs.schema = new SimpleSchema({
   },
   description: {
     type: String,
+  },
+  categoryId: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
   },
   createdAt: {
     type: Date,
@@ -38,9 +44,13 @@ if (Meteor.isServer) {
 Factory.define('program', Programs, {
   title: faker.lorem.word(),
   description: faker.lorem.text(),
+  category: Factory.get('category'),
   createdAt: () => new Date(),
 });
 
 
 Programs.helpers({
+    category() {
+      return Categories.findOne(this.categoryId);
+    },
 });

@@ -4,9 +4,20 @@ import ReactDOM from 'react-dom';
 import ProgramItem from './ProgramItem.jsx';
 
 export default class Feed extends Component {
+
+  filteredPrograms() {
+    let filteredPrograms = this.props.programs;
+    if (this.props.category) {
+      filteredPrograms = filteredPrograms.filter((program) => {
+        return (program.categoryId === this.props.category._id);
+      });
+    }
+    return filteredPrograms;
+  }
+
   visiblePrograms() {
     let selections = this.props.selections
-    let visiblePrograms = this.props.programs
+    let visiblePrograms = this.filteredPrograms();
     visiblePrograms = visiblePrograms.filter(program => {
       return selections.every(selection => {
         return (selection.userId !== Meteor.userId()) || (selection.programId !== program._id)
@@ -46,4 +57,5 @@ Feed.propTypes = {
   // We can use propTypes to indicate it is required
   programs: PropTypes.array.isRequired,
   selections: PropTypes.array.isRequired,
+  category: PropTypes.object,
 };

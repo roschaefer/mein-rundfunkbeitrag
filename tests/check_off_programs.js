@@ -12,7 +12,8 @@ describe('Decide', function() {
     beforeEach(function () {
       browser.url('http://localhost:3000');
       server.call('resetDatabase');
-      server.apply('createProgram', [{title: "Program XY"}]);
+      const category = server.apply('createCategory');
+      server.apply('createProgram', [{title: "Program XY", categoryId: category._id}]);
     });
 
     describe('/decide', function () {
