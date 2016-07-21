@@ -39,11 +39,11 @@ describe('Filter by category', function() {
       browser.click('.continue');
     });
 
-    it('sets URL parameters @watch', function () {
+    it('sets URL parameters', function () {
       expect(browser.getUrl()).to.contain("category=News");
     });
 
-    it('filters effectively narrows down choices', function () {
+    it('filters effectively narrows down choices @watch', function () {
       browser.waitForVisible('.program-list', 1000);
       expect(
         browser.getText('.program-title')[0]

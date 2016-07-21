@@ -26,6 +26,19 @@ if (Meteor.isClient) {
       expect(item.text()).to.contain('Remaining Programs: 1');
     });
 
+    it('filters programs by category', function () {
+      const category = Factory.build('category');
+      const programs = [
+        Factory.build('program', {title: 'IN', categoryId: category._id}),
+        Factory.build('program', {title: 'OUT'}),
+      ];
+      const selections = [];
+      const item = mount(<Feed programs={programs} selections={selections} category={category} />);
+      expect(item.text()).to.contain('Remaining Programs: 1');
+      expect(item.text()).to.contain('IN');
+      expect(item.text()).not.to.contain('OUT');
+    });
+
     context('user is logged in', function() {
         let uid;
         beforeEach(function () {
