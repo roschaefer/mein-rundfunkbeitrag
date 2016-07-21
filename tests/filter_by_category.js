@@ -22,21 +22,28 @@ describe('Filter by category', function() {
     it('get reduced when filters are selected', function () {
       browser.url(base_url);
       browser.waitUntil(function () {
-          return browser.getText('#program-counter') === '3'
+        return browser.getText('#program-counter') === '3'
       }, 1000, 'expected 3 programs matching the criteria');
       browser.click('label[for="News"]');
       browser.waitUntil(function () {
-          return browser.getText('#program-counter') === '2'
+        return browser.getText('#program-counter') === '2'
       }, 1000, 'expected 2 programs matching the criteria');
     });
   });
 
-  describe('List of programs to choose', function() {
-    it('is subset of programs filtered by category @watch', function () {
+  describe('Redirect to /decide page', function() {
+    beforeEach(function() {
       browser.url(base_url);
       browser.waitForVisible('.filter-list');
       browser.click('label[for="News"]');
       browser.click('.continue');
+    });
+
+    it('sets URL parameters @watch', function () {
+      expect(browser.getUrl()).to.contain("category=News");
+    });
+
+    it('filters effectively narrows down choices', function () {
       browser.waitForVisible('.program-list', 1000);
       expect(
         browser.getText('.program-title')[0]
