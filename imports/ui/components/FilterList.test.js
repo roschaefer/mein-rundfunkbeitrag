@@ -36,8 +36,7 @@ if (Meteor.isClient) {
     });
 
     context('with filters activated', function () {
-      it.skip('reduces program count', function () {
-        // TODO: why does this filter out all programs??
+      it('reduces program count', function () {
         const categories = [
           Factory.create('category'),
           Factory.create('category'),
@@ -48,8 +47,6 @@ if (Meteor.isClient) {
           Factory.create('program', {categoryId: categories[0]._id}),
         ]
         const initialFilters = [categories[0]];
-        console.log(programs);
-        console.log(initialFilters);
         const item = mount(<FilterList programs={programs} initialFilters={initialFilters} categories={[]}/>);
         expect(item.text()).to.contain('2 programs match the criteria');
       });
