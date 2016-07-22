@@ -1,0 +1,16 @@
+sudo: required
+language: node_js
+node_js:
+  - "6"
+before_install:
+  - 'curl -L https://install.meteor.com/ | /bin/sh'
+install:
+  - meteor npm install
+  #- npm install -g chimp
+services:
+  - mongodb
+script:
+  - meteor npm run test
+  #- meteor npm run acceptance &
+  #- sleep 120 
+  #- chimp --ddp=http://localhost:3000 --mocha --path=tests --browser=phantomjs
