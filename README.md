@@ -1,5 +1,7 @@
 # mein Rundfunkbeitrag
 
+[![Build Status](https://travis-ci.org/roschaefer/mein-rundfunkbeitrag.svg?branch=master)](https://travis-ci.org/roschaefer/mein-rundfunkbeitrag)
+
 Since 2013, every household in Germany has to pay fees for public broadcasting without legal opt-out.
 If we have to pay after all, it would be great to say where the money should go to.
 The platform ``mein Rundfunkbeitrag'' enables participation by creating individual invoices:
