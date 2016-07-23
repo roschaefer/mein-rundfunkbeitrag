@@ -7,19 +7,21 @@ If we have to pay after all, it would be great to say where the money should go 
 ``mein Rundfunkbeitrag`` is a voting tool to enable participation:
 How much money should go to which tv or radio station or program respectively?
 
+## Demo
+
+Visit [mein-rundfunkbeitrag](https://mein-rundfunkbeitrag.herokuapp.com/) on heroku
+
 ## Installation
 
 Install [Meteorjs](https://www.meteor.com/install).
 
 
 Clone the repository:
-
 ```
 git clone https://github.com/roschaefer/mein-rundfunkbeitrag.git
 ```
 
 Install dependencies:
-
 ```
 cd mein-rundfunkbeitrag
 meteor npm install
@@ -28,22 +30,40 @@ meteor npm install
 
 ## Usage
 
-Run the application:
-
+Start the server:
 ```
-cd mein-rundfunkbeitrag
 meteor
 ```
 
+App is running on [localhost:3000](http://localhost:3000/)
+
 ## Testing
 
-Run
+Currently, our [CI server](https://travis-ci.org/roschaefer/mein-rundfunkbeitrag) only runs unit tests.
 
+### Unit
+
+Run
 ```
 meteor npm run test
 ```
 
-Visit [localhost:3100](http://localhost:3100/)
+### Acceptance
+
+Install [chimp](https://chimp.readme.io/)
+```
+npm install -g chimp
+```
+
+Run
+```
+meteor npm run acceptance
+```
+
+In a different terminal run
+```
+chimp --ddp=http://localhost:3000 --mocha --path=tests
+```
 
 ## Contributing
 
