@@ -17,7 +17,7 @@ describe('Repeat process', function() {
     server.call('resetDatabase');
   });
 
-  describe('Start over button @watch', function () {
+  describe('Start over button', function () {
     it('brings me back to the first page', function() {
       browser.url(base_url);
       const landing_page_url = browser.getUrl();
