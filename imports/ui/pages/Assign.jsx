@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
 import Summary from '../components/Summary.jsx';
+import { Link } from 'react-router';
 
 import { Selections } from '../../api/selections.js';
 
@@ -18,6 +19,11 @@ export default class Assign extends Component {
           </div>
         </div>
         <Summary selections={this.props.selections} />
+        <Link to="/">
+        <button className="btn waves-effect waves-light restart" type="submit" name="action">
+        Start over again
+        </button>
+        </Link>
       </div>
     );
   }

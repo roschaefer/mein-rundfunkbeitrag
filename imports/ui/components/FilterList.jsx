@@ -67,7 +67,7 @@ export default class FilterList extends Component {
 
       <Link to={this.decisionUrl()}>
       <button className="btn waves-effect waves-light continue" type="submit" name="action">
-        Continue
+        See relevant programs
       </button>
       </Link>
     </div>
