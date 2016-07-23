@@ -1,23 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
-import ProgramItem from './ProgramItem.jsx';
+import InvoiceItem from './InvoiceItem.jsx';
 
 export default class Summary extends Component {
-  chosenPrograms() {
+  likedSelections() {
     let liked_selections = this.props.selections
     liked_selections = liked_selections.filter(selection => {
       return (selection.userId === Meteor.userId()) && (selection.selected === 'Yes');
     });
-    let chosenPrograms = liked_selections.map(selection => {
-      return selection.program();
-    });
-    return chosenPrograms;
+    return liked_selections;
   }
 
   renderPrograms() {
-    return this.chosenPrograms().map((program) => (
-      <ProgramItem key={program._id} program={program} />
+    return this.likedSelections().map((selection) => (
+      <InvoiceItem key={selection._id} selection={selection} />
     ));
   }
 
@@ -25,11 +22,19 @@ export default class Summary extends Component {
     return (
     <div>
       <div className="row">
-        <h3 className="col s12">Chosen Programs: {this.chosenPrograms().length}</h3>
+        <h3 className="col s12">Chosen Programs: {this.likedSelections().length}</h3>
       </div>
-      <ul className="program-list">
-      { this.renderPrograms() }
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th data-field="id">Program</th>
+            <th data-field="price">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+        { this.renderPrograms() }
+        </tbody>
+      </table>
     </div>
     );
   }
