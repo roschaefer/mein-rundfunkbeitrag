@@ -52,14 +52,14 @@ if (Meteor.isClient) {
         it('shows selected programs', function () {
           const selections = [selection];
           const item = shallow(<Summary selections={selections} />);
-          expect(item.text()).to.contain('Chosen Programs: 1');
+          expect(item.find('.program-counter').text()).to.eq('1');
         });
 
         it('does not show selected programs of other users', function () {
           selection.userId = "whatever";
           const selections = [selection];
           const item = shallow(<Summary selections={selections} />);
-          expect(item.text()).to.contain('Chosen Programs: 0');
+          expect(item.find('.program-counter').text()).to.eq('0');
         });
 
         it('does not show disliked programs', function () {
@@ -73,7 +73,7 @@ if (Meteor.isClient) {
           };
           const selections = [selection, disliked_selection];
           const item = shallow(<Summary selections={selections} />);
-          expect(item.text()).to.contain('Chosen Programs: 1');
+          expect(item.find('.program-counter').text()).to.eq('1');
         });
       });
     });

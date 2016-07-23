@@ -21,13 +21,10 @@ export default class Summary extends Component {
   render() {
     return (
     <div>
-      <div className="row">
-        <h3 className="col s12">Chosen Programs: {this.likedSelections().length}</h3>
-      </div>
       <table>
         <thead>
           <tr>
-            <th data-field="id">Program</th>
+            <th data-field="id"><strong className='program-counter'>{this.likedSelections().length}</strong> Programs</th>
             <th data-field="price">Amount</th>
           </tr>
         </thead>
