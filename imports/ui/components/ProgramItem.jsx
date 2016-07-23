@@ -18,9 +18,15 @@ export default class ProgramDecision extends Component {
     Meteor.call('selections.choose', this.props.programId, this.props.answer);
   }
 
+  classes() {
+    let classes = "selection-choose right btn-large col s5 m3 flow-text";
+    classes += " choose-" + this.props.answer.toLowerCase();
+    return classes;
+  }
+
   render() {
     return (
-      <a className="selection-choose right btn-large col s5 m3 flow-text" href="#" onClick={this.handleClick.bind(this)}>{this.props.answer}</a>
+      <a className={this.classes()} href="#" onClick={this.handleClick.bind(this)}>{this.props.answer}</a>
     )
   }
 }
