@@ -15,7 +15,7 @@ export default class Assign extends Component {
       <div>
         <div className='row'>
           <div className='help-message col s8 m8'>
-            <p> Almost done! Please say how much money should be spend on each program. You can spread money across multiple programs or specify the amount individually. </p>
+            <p> You're done! Very soon, you can say how much money should be spend on each program on this page. You will be able to spread money across multiple programs or specify the amount individually. </p>
           </div>
         </div>
         <p>
