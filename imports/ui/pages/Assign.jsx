@@ -18,12 +18,14 @@ export default class Assign extends Component {
             <p> Almost done! Please say how much money should be spend on each program. You can spread money across multiple programs or specify the amount individually. </p>
           </div>
         </div>
+        <p>
+          <Link to="/">
+          <button className="btn waves-effect waves-light restart" type="submit" name="action">
+          Find even more programs
+          </button>
+          </Link>
+        </p>
         <Summary selections={this.props.selections} />
-        <Link to="/">
-        <button className="btn waves-effect waves-light restart" type="submit" name="action">
-        Start over again
-        </button>
-        </Link>
       </div>
     );
   }
