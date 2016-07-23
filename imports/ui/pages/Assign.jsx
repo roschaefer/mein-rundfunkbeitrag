@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
 import Summary from '../components/Summary.jsx';
+import { Link } from 'react-router';
 
 import { Selections } from '../../api/selections.js';
 
@@ -17,6 +18,13 @@ export default class Assign extends Component {
             <p> Almost done! Please say how much money should be spend on each program. You can spread money across multiple programs or specify the amount individually. </p>
           </div>
         </div>
+        <p>
+          <Link to="/">
+          <button className="btn waves-effect waves-light restart" type="submit" name="action">
+          Find even more programs
+          </button>
+          </Link>
+        </p>
         <Summary selections={this.props.selections} />
       </div>
     );
