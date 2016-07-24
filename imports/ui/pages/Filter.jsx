@@ -14,8 +14,12 @@ export default class Filter extends Component {
       <div>
       <div className='row'>
         <div className='help-message col s8 m8'>
-          <p> Did you know that 8 <em>billions</em> of Euros are spent every year for public broadcasting in Germany? </p>
-          <p> This tool allows you to tell the public where your money should go to.  </p>
+          <p>
+            Did you know that Germany spends 8 <em>billion</em> Euros every year on public broadcasting?  Financed by monthly contributions of the German public.
+          </p>
+          <p>
+            However, nobody has a say in the programme design. We want to change that: with our tool, you can make your voice heard and propose on which shows your money should be spent.
+          </p>
         </div>
       </div>
       <FilterList categories={this.props.categories} programs={this.props.programs}/>

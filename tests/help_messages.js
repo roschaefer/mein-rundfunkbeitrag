@@ -13,7 +13,8 @@ describe('Help messages', function() {
       browser.url(base_url);
 
       const message = browser.getText('.help-message');
-      expect(message).to.match(/tell the public where your money should go to/i);
+      expect(message).to.match(/make your voice heard/i);
+      expect(message).to.match(/propose on which shows your money should be spent/i);
     });
   });
 
