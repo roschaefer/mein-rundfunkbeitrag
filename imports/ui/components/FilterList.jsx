@@ -60,7 +60,7 @@ export default class FilterList extends Component {
       </p>
       <div className="row">
         <h5 className="col s12">
-          <em id='program-counter'>{this.relevantPrograms().length}</em> programs match the criteria
+          <em className='program-counter'>{this.relevantPrograms().length}</em> programs match the criteria
         </h5>
       </div>
 

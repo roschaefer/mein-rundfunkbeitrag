@@ -16,6 +16,38 @@ if (Meteor.isServer) {
       resetDatabase();
     });
 
+    describe('without_selections()', function () {
+      const userId = Random.id();
+      let cursor, program, programId;
+
+      beforeEach(function () {
+        const category = Factory.create('category');
+        const categoryId = category._id;
+        program = Factory.create('program', { title: 'ABC', categoryId });
+        programId = program._id;
+      });
+
+      it('does not return programs with selections', function () {
+        Factory.create('selection', { programId, program, userId });
+        cursor = Meteor.server.publish_handlers.programs_without_selections.apply({userId});
+        const returned_programs = cursor.fetch();
+        expect(returned_programs).to.be.empty;
+      });
+
+      it('does not consider selections of other users', function () {
+        Factory.create('selection', { programId, program, userId: Random.id() });
+        cursor = Meteor.server.publish_handlers.programs_without_selections.apply({userId});
+        const returned_programs = cursor.fetch();
+        expect(returned_programs[0].title).to.eq('ABC');
+      });
+
+      it('returns programs without selections', function () {
+        cursor = Meteor.server.publish_handlers.programs_without_selections.apply({userId});
+        const returned_programs = cursor.fetch();
+        expect(returned_programs[0].title).to.eq('ABC');
+      });
+    });
+
     describe('properties', function () {
       describe('createdAt', function () {
         it('must be Date', function () {
