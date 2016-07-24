@@ -43,7 +43,7 @@ describe('Repeat process', function() {
         browser.click('.continue');
       });
 
-      it('already chosen programs are taken out @watch', function () {
+      it('already chosen programs are taken out', function () {
         browser.waitForExist('.restart', 1000);
         browser.click('.restart');
         browser.waitForVisible('.filter-list');

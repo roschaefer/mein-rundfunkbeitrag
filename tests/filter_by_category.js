@@ -47,16 +47,12 @@ describe('Filter by category', function() {
 
     it('filters effectively narrows down choices', function () {
       browser.waitForVisible('.program-list', 1000);
-      expect(
-        browser.getText('.program-title')[0]
-      ).to.equal('Tagesschau');
-      expect(
-        browser.getText('.program-title')[1]
-      ).to.equal('Heute-Journal');
+      const titles = browser.getText('.program-title').sort();
+      expect(titles[0]).to.equal('Heute-Journal');
+      expect(titles[1]).to.equal('Tagesschau');
 
-      expect(
-        browser.getText('.program-list')
-      ).not.to.contain('Sportschau');
+      expect(browser.getText('.program-list')).not.to.contain('Sportschau');
+      expect(browser.getText('.program-title')).not.to.contain('Sportschau');
 
     });
   });
