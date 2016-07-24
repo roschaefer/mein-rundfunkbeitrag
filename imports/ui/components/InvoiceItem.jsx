@@ -8,7 +8,7 @@ export default class ProgramItem extends Component {
     return (
       <tr className='invoice-item'>
         <td>{this.props.selection.program().title}</td>
-        <td>{this.props.selection.amount}</td>
+        <td>{this.props.selection.amount.toFixed(2)}€</td>
       </tr>
     );
   }
