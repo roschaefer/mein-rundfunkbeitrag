@@ -6,6 +6,7 @@ import { Factory } from 'meteor/dburles:factory';
 import faker from 'faker';
 
 import { Categories } from './categories';
+import { Selections } from './selections';
 
 export const Programs = new Mongo.Collection('Programs');
 
@@ -35,6 +36,16 @@ if (Meteor.isServer) {
   // This code only runs on the server
   Meteor.publish('programs', function programsPublication() {
     return Programs.find();
+  });
+  Meteor.publish('programs_without_selections', function withoutSelections() {
+    if (! this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+    const selections_of_user = Selections.find({
+      userId: this.userId,
+    });
+    const selected_program_ids = selections_of_user.map((s) => { return s.programId });
+    return Programs.find( { _id: { $nin: selected_program_ids} });
   });
 }
 

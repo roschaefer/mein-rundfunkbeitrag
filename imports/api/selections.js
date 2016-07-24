@@ -81,7 +81,6 @@ if (Meteor.isServer) {
 
 
 Factory.define('selection', Selections, {
-  program: Factory.get('program'),
   selected: 'Yes',
   createdAt: () => new Date(),
 });

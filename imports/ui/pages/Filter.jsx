@@ -25,7 +25,7 @@ export default class Filter extends Component {
 }
 
 export default createContainer(() => {
-  Meteor.subscribe('programs');
+  Meteor.subscribe('programs_without_selections');
   Meteor.subscribe('categories');
   return {
     programs: Programs.find({}).fetch(),

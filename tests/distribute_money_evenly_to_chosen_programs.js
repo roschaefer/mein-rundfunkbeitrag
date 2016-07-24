@@ -33,7 +33,7 @@ describe('Money distribution', function() {
           browser.click('.continue');
       });
 
-      it('@watch I can see that 17.50€ are distributed evenly on the two programs I have chosen', function () {
+      it('I can see that 17.50€ are distributed evenly on the two programs I have chosen', function () {
           browser.waitForVisible('.invoice-item');
           const items = browser.getText('.invoice-item');
           // first program
