@@ -13,7 +13,7 @@ describe('Repeat process', function() {
   const base_url = 'http://localhost:3000';
 
   beforeEach(function () {
-    browser.url('http://localhost:3000');
+    browser.url(base_url);
     server.call('resetDatabase');
   });
 
@@ -28,6 +28,27 @@ describe('Repeat process', function() {
       browser.waitForExist('.restart', 1000);
       browser.click('.restart');
       expect(browser.getUrl()).to.eq(landing_page_url);
+    });
+
+    context('given I have chosen 2 out of 3 programs already', function () {
+      beforeEach(function () {
+        const category = server.apply('createCategory');
+        server.apply('createProgram', [{title: "Program A", categoryId: category._id}]);
+        server.apply('createProgram', [{title: "Program B", categoryId: category._id}]);
+        server.apply('createProgram', [{title: "Program C", categoryId: category._id}]);
+        browser.url(base_url + '/decide');
+        browser.waitForVisible('.choose-yes');
+        browser.click('.choose-yes');
+        browser.click('.choose-no');
+        browser.click('.continue');
+      });
+
+      it('already chosen programs are taken out @watch', function () {
+        browser.waitForExist('.restart', 1000);
+        browser.click('.restart');
+        browser.waitForVisible('.filter-list');
+        expect(browser.getText('.program-counter')).to.eq('1');
+      });
     });
   });
 
