@@ -37,7 +37,7 @@ describe('Repeat process', function() {
         server.apply('createProgram', [{title: "Program B", categoryId: category._id}]);
         server.apply('createProgram', [{title: "Program C", categoryId: category._id}]);
         browser.url(base_url + '/decide');
-        browser.waitForVisible('.choose-yes');
+        browser.waitForVisible('.choose-yes', 1000);
         browser.click('.choose-yes');
         browser.click('.choose-no');
         browser.click('.continue');
