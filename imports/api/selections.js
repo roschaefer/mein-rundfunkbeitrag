@@ -56,12 +56,13 @@ Meteor.methods({
     if (! this.userId) {
       throw new Meteor.Error('not-authorized');
     }
-    const number_of_selections = Selections.find().count();
-    const amount = Budget/number_of_selections;
-    Selections.update({
+    query = {
       userId: this.userId,
       selected: 'Yes',
-    },{
+    };
+    const number_of_selections = Selections.find(query).count();
+    const amount = Budget/number_of_selections;
+    Selections.update(query,{
       $set: { amount }
     },{
       upsert: false, multi: true

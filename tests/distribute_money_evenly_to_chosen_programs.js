@@ -40,8 +40,8 @@ describe('Money distribution', function() {
           expect(items[0]).to.include('8.75');
           expect(items[0]).to.include('Program XY');
           // second program
-          expect(item[1]).to.include('8.75');
-          expect(item[1]).to.include('Program XZ');
+          expect(items[1]).to.include('8.75');
+          expect(items[1]).to.include('Program XZ');
       });
 
     });

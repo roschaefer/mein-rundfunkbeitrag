@@ -4,7 +4,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import Summary from '../components/Summary.jsx';
 import { Link } from 'react-router';
 
-import { Selections } from '../../api/selections.js';
+import { Budget, Selections } from '../../api/selections.js';
 
 
 
@@ -16,6 +16,7 @@ export default class Assign extends Component {
         <div className='row'>
           <div className='help-message col s8 m8'>
             <p> You're done! Very soon, you can say how much money should be spend on each program on this page. You will be able to spread money across multiple programs or specify the amount individually. </p>
+            <p> For now, we distribute your budget of { Budget }€/month equally to your chosen programs. </p>
           </div>
         </div>
         <p>
@@ -34,6 +35,7 @@ export default class Assign extends Component {
 export default createContainer(() => {
   Meteor.subscribe('selections');
   Meteor.subscribe('programs');
+  Meteor.call('selections.assign_initial_amounts');
 
   return {
     selections: Selections.find({}).fetch(),
