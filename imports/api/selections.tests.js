@@ -7,7 +7,7 @@ import { expect } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { Random } from 'meteor/random';
 
-import { Selections } from './selections';
+import { Budget, Selections } from './selections';
 import { Programs } from './programs';
 import { Accounts } from 'meteor/accounts-base'
 
@@ -70,5 +70,96 @@ if (Meteor.isServer) {
         });
       });
     });
+
+
+
+    context('given three programs and three selections', function () {
+      const userId = Random.id();
+      let program, programId;
+
+      beforeEach(function () {
+        const category = Factory.create('category');
+        const categoryId = category._id;
+        [1,2,3].forEach((number) => {
+          program = Factory.create('program', { categoryId });
+          programId = program._id;
+          Factory.create('selection', { programId, program, userId });
+        });
+      });
+
+      describe('selections.assign_initial_amounts', function () {
+        let assign_initial_amounts, invocation;
+        beforeEach(function() {
+          assign_initial_amounts  = Meteor.server.method_handlers['selections.assign_initial_amounts'];
+          invocation = { userId };
+        });
+
+        it('assigns an certain amount to every selected program', function () {
+          assign_initial_amounts.apply(invocation);
+          selections = Selections.find({}).fetch();
+          selections.forEach((selection) => {
+            expect(selection.amount).to.exist;
+          });
+        });
+
+        it('does not assign amounts of no-selections', function () {
+          let no_selection = Factory.create('selection', { programId, program, userId, selected: "No"});
+          assign_initial_amounts.apply(invocation);
+          no_selection = Selections.findOne({_id: no_selection._id});
+          expect(no_selection.amount).not.to.exist;
+        });
+
+        it('does not assign amounts of selections of other users', function () {
+          const otherUserId = Random.id();
+          Factory.create('selection', { programId, program, userId: otherUserId});
+          assign_initial_amounts.apply(invocation);
+          user_selection = Selections.findOne({userId});
+          other_selection = Selections.findOne({userId: otherUserId});
+          expect(user_selection.amount).to.exist;
+          expect(other_selection.amount).not.to.exist;
+        });
+
+        describe('total amount', function() {
+          it('is at most the budget for public broadcasting per person', function () {
+            assign_initial_amounts.apply(invocation);
+            selections = Selections.find({}).fetch();
+            let totalAmount = 0;
+            selections.forEach((selection) => {
+              totalAmount += selection.amount;
+            });
+            expect(totalAmount).to.be.at.most(Budget);
+          });
+
+          context('repeated calls', function () {
+            beforeEach(function () {
+              assign_initial_amounts.apply(invocation);
+            });
+
+            context('even after more selections are added to the list', function () {
+              beforeEach(function () {
+                const category = Factory.create('category');
+                const categoryId = category._id;
+                [1,2].forEach((number) => {
+                  program = Factory.create('program', { categoryId });
+                  programId = program._id;
+                  Factory.create('selection', { programId, program, userId });
+                });
+              });
+
+              it('never exceeds the budget for public broadcasting per person', function () {
+                assign_initial_amounts.apply(invocation);
+                selections = Selections.find({}).fetch();
+                let totalAmount = 0;
+                selections.forEach((selection) => {
+                  totalAmount += selection.amount;
+                });
+                expect(totalAmount).to.be.at.most(Budget);
+              });
+            });
+          });
+        });
+      });
+    });
+
   });
 }

@@ -7,6 +7,7 @@ import faker from 'faker';
 
 import { Programs } from './programs';
 
+export const Budget = 17.50;
 export const Selections = new Mongo.Collection('Selections');
 
 Selections.schema = new SimpleSchema({
@@ -20,6 +21,11 @@ Selections.schema = new SimpleSchema({
   },
   selected: {
     type: String,
+  },
+  amount: {
+    type: Number,
+    optional: true,
+    decimal: true,
   },
   createdAt: {
     type: Date,
@@ -44,6 +50,21 @@ Meteor.methods({
       userId: this.userId,
       programId: pid,
       selected: answer,
+    });
+  },
+  'selections.assign_initial_amounts'() {
+    if (! this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+    const number_of_selections = Selections.find().count();
+    const amount = Budget/number_of_selections;
+    Selections.update({
+      userId: this.userId,
+      selected: 'Yes',
+    },{
+      $set: { amount }
+    },{
+      upsert: false, multi: true
     });
   },
 });

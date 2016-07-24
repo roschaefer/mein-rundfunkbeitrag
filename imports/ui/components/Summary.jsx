@@ -12,7 +12,7 @@ export default class Summary extends Component {
     return liked_selections;
   }
 
-  renderPrograms() {
+  renderInvoiceItems() {
     return this.likedSelections().map((selection) => (
       <InvoiceItem key={selection._id} selection={selection} />
     ));
@@ -29,7 +29,7 @@ export default class Summary extends Component {
           </tr>
         </thead>
         <tbody>
-        { this.renderPrograms() }
+        { this.renderInvoiceItems() }
         </tbody>
       </table>
     </div>
