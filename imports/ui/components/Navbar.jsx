@@ -5,17 +5,11 @@ import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 export default class Navbar extends Component {
   render() {
     return(
-
-    <nav>
-      <div className="nav-wrapper">
-        <a href="#" className="brand-logo center">mein Rundfunkbeitrag</a>
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li>
-              <AccountsUIWrapper />
-          </li>
-        </ul>
-      </div>
-    </nav>
+      <header className="mdl-layout__header">
+        <div className="mdl-layout__header-row">
+          <span className="mdl-layout-title"> mein Rundfunkbeitrag </span>
+        </div>
+      </header>
     );
   }
 }
