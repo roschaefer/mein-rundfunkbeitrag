@@ -2,6 +2,6 @@
 
 .help-message {
   @extend .flow-text;
-  @include fadeInLeft();
+  @include fadeIn();
 
 }
