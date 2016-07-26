@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 export class DecisionBox extends Component {
   render() {
     return (
-      <div className="card-action decision-box">
+      <div className="decision-box mdl-card__actions mdl-card--border filter-list">
       <ProgramDecision programId={this.props.programId} answer="No"/>
       <ProgramDecision programId={this.props.programId} answer="Yes"/>
       </div>
@@ -19,14 +19,16 @@ export class ProgramDecision extends Component {
   }
 
   classes() {
-    let classes = "selection-choose right btn-large col s5 m3 flow-text";
+    let classes = "selection-choose mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent";
     classes += " choose-" + this.props.answer.toLowerCase();
     return classes;
   }
 
   render() {
     return (
-      <a className={this.classes()} href="#" onClick={this.handleClick.bind(this)}>{this.props.answer}</a>
+      <button className={this.classes()} href="#" onClick={this.handleClick.bind(this)}>
+        {this.props.answer}
+      </button>
     )
   }
 }
@@ -34,19 +36,15 @@ export class ProgramDecision extends Component {
 export default class ProgramItem extends Component {
   render() {
     return (
-      <li>
-      <div className="row">
-      <div className="col s12 m6">
-      <div className="card teal darken-1">
-      <div className="card-content white-text">
-      <span className="program-title card-title">{this.props.program.title}</span>
-      <p>{this.props.program.description}</p>
+      <div className="program-card mdl-card mdl-shadow--2dp">
+        <div className="program-title mdl-card__title">
+          <h2 className="mdl-card__title-text">{this.props.program.title}</h2>
+        </div>
+        <div className="mdl-card__supporting-text">
+          <p>{this.props.program.description}</p>
+        </div>
         <DecisionBox programId={this.props.program._id}/>
       </div>
-      </div>
-      </div>
-      </div>
-      </li>
     );
   }
 }

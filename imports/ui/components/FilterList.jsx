@@ -59,7 +59,7 @@ export default class FilterList extends Component {
             <em className='program-counter'>{this.relevantPrograms().length}</em> programs match the criteria
             </div>
 
-            <a href={this.decisionUrl()} className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'>
+            <a href={this.decisionUrl()} className='continue mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
               See relevant programs
             </a>
         </div>
