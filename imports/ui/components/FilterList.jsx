@@ -62,9 +62,12 @@ export default class FilterList extends Component {
         </h5>
       </div>
 
+      <button className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'>
+        See relevant programs
+      </button>
 
       <Link to={this.decisionUrl()}>
-      <button className="btn waves-effect waves-light continue" type="submit" name="action">
+      <button className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'>
         See relevant programs
       </button>
       </Link>

@@ -32,5 +32,5 @@ check
 random
 seba:minifiers-autoprefixer
 fourseven:scss
-poetic:materialize-scss
 dispatch:mocha-phantomjs
+zodiase:mdl
