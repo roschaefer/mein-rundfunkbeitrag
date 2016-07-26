@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Link } from 'react-router';
 
 import FilterItem from './FilterItem.jsx';
 
@@ -43,30 +42,31 @@ export default class FilterList extends Component {
   render() {
     return (
     <div>
-      <h4>Filters</h4>
-      <div className='row'>
-        <div className='help-message col s8 m8'>
+
+      <div className="help-card mdl-card mdl-shadow--2dp">
+        <div className="mdl-card__title">
+          <h2 className="mdl-card__title-text">Filters</h2>
+        </div>
+        <div className="mdl-card__supporting-text help-message">
           <p> There are so many programs available. In order to narrow down choices, click on the filter options below. </p>
+        </div>
+        <div className="mdl-card__actions mdl-card--border filter-list">
+            <div className="mdl-card__supporting-text">
+            by category
+            </div>
+              { this.renderFilters() }
+            <div className="mdl-card__supporting-text">
+            <em className='program-counter'>{this.relevantPrograms().length}</em> programs match the criteria
+            </div>
+
+            <a href={this.decisionUrl()} className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'>
+              See relevant programs
+            </a>
         </div>
       </div>
 
-        <form action="#" className='filter-list'>
-          <em>by category</em>
-        <br/>
-        <br/>
-          { this.renderFilters() }
-        </form>
-      <div className="row">
-        <h5 className="col s12">
-          <em className='program-counter'>{this.relevantPrograms().length}</em> programs match the criteria
-        </h5>
-      </div>
 
-      <Link to={this.decisionUrl()}>
-      <button className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'>
-        See relevant programs
-      </button>
-      </Link>
+
     </div>
     );
   }

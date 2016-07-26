@@ -1,6 +1,19 @@
 @import "{}/node_modules/animatewithsass/animate.scss";
+$color-primary: #E91E63;
+$color-accent: #03A9F4;
 
 .help-message {
   @include fadeIn();
 
+}
+.help-card {
+  width: 512px;
+
+  .mdl-card__title {
+    color: $color-primary;
+  }
+}
+
+.filter-option {
+  padding-right: 30px;
 }

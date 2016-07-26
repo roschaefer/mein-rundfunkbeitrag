@@ -12,18 +12,25 @@ export default class Filter extends Component {
   render() {
     return (
       <div>
-      <div className='row'>
-        <div className='col s12 m12'>
-              <div className='help-message'>
-                <p>
-                  Did you know that Germany spends 8 <em>billion</em> Euros every year on public broadcasting?  Financed by monthly contributions of the German public.
-                </p>
-                <p>
-                  However, nobody has a say in the programme design. We want to change that: with our tool, you can make your voice heard and propose on which shows your money should be spent.
-                </p>
-          </div>
+
+
+      <div className="help-card mdl-card mdl-shadow--2dp">
+        <div className="mdl-card__supporting-text help-message">
+          <p>
+            Did you know that Germany spends 8 <em>billion</em> Euros every year on public broadcasting?
+            Financed by monthly contributions of the German public.
+          </p>
+          <p>
+            However, nobody has a say in the programme design.
+            We want to change that: with our tool, you can make your voice heard
+            and propose on which shows your money should be spent.
+          </p>
         </div>
       </div>
+
+
+
+
       <FilterList categories={this.props.categories} programs={this.props.programs}/>
       </div>
     );
