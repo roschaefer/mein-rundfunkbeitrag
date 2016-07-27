@@ -72,7 +72,6 @@ npm-bcrypt@0.8.6_3
 npm-mongo@1.4.45
 observe-sequence@1.0.12
 ordered-dict@1.0.8
-poetic:materialize-scss@1.97.6_1
 practicalmeteor:chai@2.1.0_1
 practicalmeteor:mocha-core@1.0.1
 practicalmeteor:sinon@1.14.1_2
@@ -105,3 +104,7 @@ url@1.0.10
 webapp@1.2.11
 webapp-hashing@1.0.9
 xolvio:cleaner@0.3.1
+zodiase:check@0.0.4
+zodiase:material-design-icons-fonts@2.2.3
+zodiase:mdl@1.1.3_3
+zodiase:mdl-assets@1.1.3_1

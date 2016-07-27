@@ -20,11 +20,11 @@ export default class Summary extends Component {
 
   render() {
     return (
-    <div>
-      <table>
+    <div className='mdl-cell--8-col'>
+      <table className="invoice mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
           <tr>
-            <th data-field="id"><strong className='program-counter'>{this.likedSelections().length}</strong> Programs</th>
+            <th className="mdl-data-table__cell--non-numeric"><strong className='program-counter'>{this.likedSelections().length}</strong> Programs</th>
             <th data-field="price">Amount</th>
           </tr>
         </thead>

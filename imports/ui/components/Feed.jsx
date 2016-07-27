@@ -34,20 +34,18 @@ export default class Feed extends Component {
 
   render() {
     return (
-    <div>
-      <div className='row'>
-        <div className='help-message col s8 m8'>
-          <p> Now, you can decide whether you want to give money to a program. </p>
-          <p> Simply click on <em>Yes</em> or <em>No</em>. If you are not sure, choose <em>No</em>. </p>
+      <div className="program-list mdl-grid">
+        <div className="help-card mdl-card mdl-shadow--2dp mdl-cell--8-col">
+          <div className="mdl-card__title">
+            <h2 className="mdl-card__title-text">Remaining Programs: {this.visiblePrograms().length}</h2>
+          </div>
+          <div className="mdl-card__supporting-text help-message">
+            <p> Now, you can decide whether you want to give money to a program. </p>
+            <p> Simply click on <em>Yes</em> or <em>No</em>. If you are not sure, choose <em>No</em>. </p>
+          </div>
         </div>
-      </div>
-      <div className="row">
-        <h3 className="col s12">Remaining Programs: {this.visiblePrograms().length}</h3>
-      </div>
-      <ul className="program-list">
       { this.renderPrograms() }
-      </ul>
-    </div>
+      </div>
     );
   }
 }

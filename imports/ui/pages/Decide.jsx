@@ -19,10 +19,8 @@ export default class Decide extends Component {
     return (
       <div>
         <Feed programs={this.props.programs} selections={this.props.selections} category={this.getCategory()} />
-        <Link to="/assign">
-        <button className="btn waves-effect waves-light continue" type="submit" name="action">
-        Assign money
-        </button>
+        <Link to='/assign' className='continue mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
+          Assign money
         </Link>
       </div>
     );

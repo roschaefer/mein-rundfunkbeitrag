@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import Navbar from './Navbar.jsx';
+import Footer from './Footer.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 
@@ -8,16 +10,17 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="container">
-      <h2>mein Rundfunkbeitrag</h2>
-        <AccountsUIWrapper />
-        {this.props.children}
+      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <Navbar/>
+           <main className="mdl-layout__content">
+                <AccountsUIWrapper />
+              <div className="page-content">
+                {this.props.children}
+              </div>
+            <Footer/>
+          </main>
       </div>
+
     );
   }
 }
-
-
-
-
-

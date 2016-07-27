@@ -7,10 +7,11 @@ export default class FilterItem extends Component {
 
   render() {
     return (
-      <div>
-        <input onClick={this.props.filterFunction} name="category" type="radio" id={this.props.category.name} />
-        <label htmlFor={this.props.category.name}>{this.props.category.name}</label>
-      </div>
+      <label className="filter-option mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor={this.props.category.name}>
+        <span className="mdl-radio__label">{this.props.category.name}</span>
+        <input onClick={this.props.filterFunction} type="radio" name="filter-list" className="mdl-radio__button" id={this.props.category.name} ></input>
+      </label>
+
     );
   }
 }
