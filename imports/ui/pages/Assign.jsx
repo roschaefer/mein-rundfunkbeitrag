@@ -23,9 +23,9 @@ export default class Assign extends Component {
           </div>
 
           <div className="mdl-card__actions mdl-card--border filter-list">
-            <a href='/' className='restart mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
+            <Link to='/' className='restart mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
               Find even more programs
-            </a>
+            </Link>
           </div>
         </div>
         <Summary selections={this.props.selections} />

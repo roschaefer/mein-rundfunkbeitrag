@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
+import { Link } from 'react-router';
 
 import FilterItem from './FilterItem.jsx';
 
@@ -59,9 +60,9 @@ export default class FilterList extends Component {
             <em className='program-counter'>{this.relevantPrograms().length}</em> programs match the criteria
             </div>
 
-            <a href={this.decisionUrl()} className='continue mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
+            <Link to={this.decisionUrl()} className='continue mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
               See relevant programs
-            </a>
+            </Link>
         </div>
       </div>
 

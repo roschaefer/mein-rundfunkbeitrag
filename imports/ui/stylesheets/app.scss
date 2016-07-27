@@ -1,6 +1,8 @@
 @import "{}/node_modules/animatewithsass/animate.scss";
-$color-primary: #E91E63;
-$color-accent: #03A9F4;
+$teal: 009688;
+$color-primary: $teal;
+$pink: #E91E63;
+$color-accent: $pink;
 
 .help-message {
   @include fadeIn();
