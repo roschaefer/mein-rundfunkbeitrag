@@ -50,14 +50,12 @@ export default class FilterList extends Component {
         </div>
       </div>
 
-      <p>
         <form action="#" className='filter-list'>
-        <p>
           <em>by category</em>
-        </p>
+        <br/>
+        <br/>
           { this.renderFilters() }
         </form>
-      </p>
       <div className="row">
         <h5 className="col s12">
           <em className='program-counter'>{this.relevantPrograms().length}</em> programs match the criteria

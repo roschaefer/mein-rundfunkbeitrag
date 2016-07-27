@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 
-export default class DecisionBox extends Component {
+export class DecisionBox extends Component {
   render() {
     return (
       <div className="card-action decision-box">
@@ -12,7 +12,7 @@ export default class DecisionBox extends Component {
     )
   }
 }
-export default class ProgramDecision extends Component {
+export class ProgramDecision extends Component {
   handleClick(event) {
     event.preventDefault();
     Meteor.call('selections.choose', this.props.programId, this.props.answer);

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 
 
-export default class ProgramItem extends Component {
+export default class InvoiceItem extends Component {
   render() {
     return (
       <tr className='invoice-item'>
@@ -14,7 +14,6 @@ export default class ProgramItem extends Component {
   }
 }
 
-ProgramItem.propTypes = {
-  program: PropTypes.object.isRequired,
+InvoiceItem.propTypes = {
   selection: PropTypes.object.isRequired,
 };
