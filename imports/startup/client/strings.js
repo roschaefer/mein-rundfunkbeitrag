@@ -1,9 +1,20 @@
 export const strings = {
   'en-US':{
-    'app.greeting': 'Yahooow, {name}!'
+    'app.welcome': 'Did you know that Germany spends {amount} billion Euros every year on public broadcasting?  Financed by monthly contributions of the German public.',
+    'app.purpose': 'However, nobody has a say in the programme design. We want to change that: with our tool, you can make your voice heard and propose on which shows your money should be spent.',
+    'app.filter.select-filter': 'There are so many programs available. In order to narrow down choices, click on the filter options below.',
+    'app.filter.select-filter.label.category': 'by category',
+    'app.filter.select-filter.result-set-size': '{programCounter, plural, =0 {no program matches} one {# program matches} other {# programs match}} the criteria',
+    'app.filter.continue-to-decide': 'See relevant programs',
+
   },
 
   'de-DE':{
-    'app.greeting': 'Heyoooo, {name}!'
+    'app.welcome': 'Wusstest Du, dass Deutschland jedes Jahr {amount} Milliarden Euro für den öffentlichen Rundfunk ausgibt? Finanziert wird das unter Anderem mit Deinem monatlichen Rundfunkbeitrag.',
+    'app.purpose': 'Aber keiner darf mitbestimmen. Das wollen wir ändern: Mit unserem Tool kannst Du Deiner Stimme Gehör verschaffen und Du selbst kannst darüber entscheiden, wohin Deine Gebühren fließen sollen.',
+    'app.filter.select-filter': 'Es gibt so viele unterschiedliche Programme. Um das Angebot etwas einzuschränken, klick unten auf die Filter-Optionen.',
+    'app.filter.select-filter.label.category': 'nach Rubrik',
+    'app.filter.select-filter.result-set-size': '{programCounter, plural, =0 {kein Program erfüllt} one {# Programm erfüllt} other {# Programme erfüllen}} die Kriterien',
+    'app.filter.continue-to-decide': 'Relevante Programme anschauen',
   }
 };
