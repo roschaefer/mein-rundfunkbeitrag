@@ -25,11 +25,11 @@ describe('Money distribution', function() {
     context('when I choose three programs for the first time', function () {
       beforeEach(function () {
         browser.url(base_url + '/decide');
-          browser.waitForVisible('.program-list');
+          browser.waitForVisible('.choose-yes');
           browser.click('.choose-yes');
           browser.click('.choose-no');
           browser.click('.choose-yes');
-          browser.waitForVisible('li', 1000, true); // gone
+          browser.waitForVisible('.program-card', 1000, true); // gone
           browser.click('.continue');
       });
 

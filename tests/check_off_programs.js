@@ -23,9 +23,9 @@ describe('Decide', function() {
 
       context('even as a guest user', function () {
         it('I can check off a program', function () {
-          browser.waitForVisible('.program-list');
-          browser.click('.selection-choose');
-          browser.waitForVisible('li', 1000, true);
+          browser.waitForVisible('.choose-no');
+          browser.click('.choose-no');
+          browser.waitForVisible('.program-card', 1000, true);
         });
       });
     });

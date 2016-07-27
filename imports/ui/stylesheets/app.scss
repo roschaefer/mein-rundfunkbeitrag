@@ -1,5 +1,5 @@
 @import "{}/node_modules/animatewithsass/animate.scss";
-$teal: 009688;
+$teal: #009688;
 $color-primary: $teal;
 $pink: #E91E63;
 $color-accent: $pink;
@@ -26,7 +26,7 @@ $color-accent: $pink;
 
   .program-title {
     color: #FFFFFF;
-    background-color: $color-accent;
+    background-color: $color-primary;
   }
 
   .selection-choose + .selection-choose {
