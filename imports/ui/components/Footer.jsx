@@ -4,7 +4,7 @@ export default class Footer extends Component {
   render() {
     return(
         <footer className="mdl-mini-footer">
-            <div className="mdl-mini-footer__right-section">
+            <div className="mdl-mini-footer__left-section">
               <div className="mdl-logo">Want to give us Feedback?</div>
               <ul className="mdl-mini-footer__link-list">
                 <li><a href="https://github.com/roschaefer/mein-rundfunkbeitrag/issues" target='_blank'>GitHub</a></li>

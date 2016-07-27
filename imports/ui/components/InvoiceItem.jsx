@@ -7,7 +7,7 @@ export default class InvoiceItem extends Component {
   render() {
     return (
       <tr className='invoice-item'>
-        <td>{this.props.selection.program().title}</td>
+        <td className="mdl-data-table__cell--non-numeric">{this.props.selection.program().title}</td>
         <td>{this.props.selection.amount.toFixed(2)}€</td>
       </tr>
     );
