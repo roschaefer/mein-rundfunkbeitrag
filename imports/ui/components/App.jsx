@@ -13,8 +13,8 @@ export default class App extends Component {
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <Navbar/>
            <main className="mdl-layout__content">
-              <div className="page-content">
                 <AccountsUIWrapper />
+              <div className="page-content">
                 {this.props.children}
               </div>
             <Footer/>

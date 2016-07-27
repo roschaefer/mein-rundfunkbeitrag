@@ -34,8 +34,8 @@ export default class Feed extends Component {
 
   render() {
     return (
-      <div className="program-list">
-        <div className="help-card mdl-card mdl-shadow--2dp">
+      <div className="program-list mdl-grid">
+        <div className="help-card mdl-card mdl-shadow--2dp mdl-cell--8-col">
           <div className="mdl-card__title">
             <h2 className="mdl-card__title-text">Remaining Programs: {this.visiblePrograms().length}</h2>
           </div>

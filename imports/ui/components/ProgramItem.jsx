@@ -36,7 +36,7 @@ export class ProgramDecision extends Component {
 export default class ProgramItem extends Component {
   render() {
     return (
-      <div className="program-card mdl-card mdl-shadow--2dp">
+      <div className="program-card mdl-card mdl-shadow--2dp mdl-cell--8-col">
         <div className="program-title mdl-card__title">
           <h2 className="mdl-card__title-text">{this.props.program.title}</h2>
         </div>

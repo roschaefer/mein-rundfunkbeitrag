@@ -42,9 +42,7 @@ export default class FilterList extends Component {
 
   render() {
     return (
-    <div>
-
-      <div className="help-card mdl-card mdl-shadow--2dp">
+      <div className="help-card mdl-card mdl-shadow--2dp mdl-cell--8-col">
         <div className="mdl-card__title">
           <h2 className="mdl-card__title-text">Filters</h2>
         </div>
@@ -65,10 +63,6 @@ export default class FilterList extends Component {
             </Link>
         </div>
       </div>
-
-
-
-    </div>
     );
   }
 }

@@ -12,8 +12,8 @@ export default class Assign extends Component {
 
   render() {
     return (
-      <div>
-        <div className="help-card mdl-card mdl-shadow--2dp">
+      <div className='mdl-grid'>
+        <div className="help-card mdl-card mdl-shadow--2dp mdl-cell--8-col">
           <div className="mdl-card__title">
             <h2 className="mdl-card__title-text">Summary</h2>
           </div>

@@ -20,7 +20,7 @@ export default class Summary extends Component {
 
   render() {
     return (
-    <div>
+    <div className='mdl-cell--8-col'>
       <table className="invoice mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
           <tr>

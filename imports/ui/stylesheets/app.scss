@@ -9,7 +9,6 @@ $color-accent: $pink;
 
 }
 .help-card {
-  width: 512px;
 
   .mdl-card__title {
     color: $color-primary;
@@ -18,11 +17,9 @@ $color-accent: $pink;
 
 .invoice {
   margin-top: 60px;
-  width: 512px;
 }
 
 .program-card {
-  width: 500px;
 
   .program-title {
     color: #FFFFFF;
@@ -35,7 +32,7 @@ $color-accent: $pink;
 }
 
 .mdl-card + .mdl-card {
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .filter-option {

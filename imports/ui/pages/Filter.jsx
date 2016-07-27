@@ -11,10 +11,10 @@ export default class Filter extends Component {
 
   render() {
     return (
-      <div>
+      <div className='mdl-grid'>
 
 
-      <div className="help-card mdl-card mdl-shadow--2dp">
+      <div className="help-card mdl-card mdl-shadow--2dp mdl-cell--8-col">
         <div className="mdl-card__supporting-text help-message">
           <p>
             Did you know that Germany spends 8 <em>billion</em> Euros every year on public broadcasting?
