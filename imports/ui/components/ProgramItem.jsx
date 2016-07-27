@@ -6,8 +6,8 @@ export class DecisionBox extends Component {
   render() {
     return (
       <div className="decision-box mdl-card__actions mdl-card--border filter-list">
-      <ProgramDecision programId={this.props.programId} answer="No"/>
       <ProgramDecision programId={this.props.programId} answer="Yes"/>
+      <ProgramDecision programId={this.props.programId} answer="No"/>
       </div>
     )
   }
