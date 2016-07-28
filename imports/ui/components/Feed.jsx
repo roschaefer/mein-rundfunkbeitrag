@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 import ProgramItem from './ProgramItem.jsx';
+import { FormattedMessage } from 'react-intl';
 
 export default class Feed extends Component {
 
@@ -37,11 +38,20 @@ export default class Feed extends Component {
       <div className="program-list mdl-grid">
         <div className="help-card mdl-card mdl-shadow--2dp mdl-cell--8-col">
           <div className="mdl-card__title">
-            <h2 className="mdl-card__title-text">Remaining Programs: {this.visiblePrograms().length}</h2>
+            <h2 className="mdl-card__title-text">
+              <FormattedMessage id='app.decide.remaining-programs' values={{programCounter:  this.visiblePrograms().length }}/>
+            </h2>
           </div>
           <div className="mdl-card__supporting-text help-message">
-            <p> Now, you can decide whether you want to give money to a program. </p>
-            <p> Simply click on <em>Yes</em> or <em>No</em>. If you are not sure, choose <em>No</em>. </p>
+            <p>
+            <FormattedMessage id='app.decide.help-message.intention'/>
+            </p>
+            <p>
+            <FormattedMessage id='app.decide.help-message.todo' values={{
+              yes: <em><FormattedMessage id='app.decide.answer.yes'/></em>,
+              no: <em><FormattedMessage id='app.decide.answer.no'/></em>}}
+            />
+            </p>
           </div>
         </div>
       { this.renderPrograms() }

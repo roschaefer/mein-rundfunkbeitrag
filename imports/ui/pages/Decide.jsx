@@ -7,6 +7,7 @@ import Feed from '../components/Feed.jsx';
 import { Programs } from '../../api/programs.js';
 import { Selections } from '../../api/selections.js';
 import { Categories } from '../../api/categories.js';
+import { FormattedMessage } from 'react-intl';
 
 
 export default class Decide extends Component {
@@ -20,7 +21,7 @@ export default class Decide extends Component {
       <div>
         <Feed programs={this.props.programs} selections={this.props.selections} category={this.getCategory()} />
         <Link to='/assign' className='continue mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
-          Assign money
+          <FormattedMessage id='app.decide.continue-to-assign' />
         </Link>
       </div>
     );

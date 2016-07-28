@@ -6,6 +6,12 @@ export const strings = {
     'app.filter.select-filter.label.category': 'by category',
     'app.filter.select-filter.result-set-size': '{programCounter, plural, =0 {no program matches} one {# program matches} other {# programs match}} the criteria',
     'app.filter.continue-to-decide': 'See relevant programs',
+    'app.decide.continue-to-assign': 'Assign money',
+    'app.decide.remaining-programs': '{programCounter, plural, =0 {Finished} one {# one program remains} other {# programs remain}}',
+    'app.decide.help-message.intention': 'Now, you can decide whether you want to give money to a program.',
+    'app.decide.help-message.todo': 'Simply click on {yes} or {no}. If you are not sure, choose {no}.',
+    'app.decide.answer.yes': 'Yes',
+    'app.decide.answer.no': 'No',
 
   },
 
@@ -16,5 +22,11 @@ export const strings = {
     'app.filter.select-filter.label.category': 'nach Rubrik',
     'app.filter.select-filter.result-set-size': '{programCounter, plural, =0 {kein Program erfüllt} one {# Programm erfüllt} other {# Programme erfüllen}} die Kriterien',
     'app.filter.continue-to-decide': 'Relevante Programme anschauen',
+    'app.decide.continue-to-assign': 'Geld zuweisen',
+    'app.decide.remaining-programs': '{programCounter, plural, =0 {Fertig} one {# Programm übrig} other {# Programme übrig }}',
+    'app.decide.help-message.intention': 'Jetzt kannst Du entscheiden, ob Du ein Programm bezahlen möchtest oder nicht.',
+    'app.decide.help-message.todo': 'Klick einfach auf {yes} oder {no}. Wenn Du nicht sicher bist, klick auf {no}.',
+    'app.decide.answer.yes': 'Ja',
+    'app.decide.answer.no': 'Nein',
   }
 };
