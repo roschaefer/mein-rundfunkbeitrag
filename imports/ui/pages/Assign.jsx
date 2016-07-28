@@ -5,6 +5,7 @@ import Summary from '../components/Summary.jsx';
 import { Link } from 'react-router';
 
 import { Budget, Selections } from '../../api/selections.js';
+import { FormattedNumber, FormattedMessage } from 'react-intl';
 
 
 
@@ -15,16 +16,25 @@ export default class Assign extends Component {
       <div className='mdl-grid'>
         <div className="help-card mdl-card mdl-shadow--2dp mdl-cell--8-col">
           <div className="mdl-card__title">
-            <h2 className="mdl-card__title-text">Summary</h2>
+            <h2 className="mdl-card__title-text">
+              <FormattedMessage id='app.assign.title'/>
+            </h2>
           </div>
           <div className="mdl-card__supporting-text help-message">
-            <p> You're done! Very soon, you can say how much money should be spend on each program on this page. You will be able to spread money across multiple programs or specify the amount individually. </p>
-            <p> For now, we distribute your budget of { Budget }€/month equally to your chosen programs. </p>
+            <p>
+            <FormattedMessage id='app.assign.help-message.intention'/>
+            </p>
+            <p>
+            <FormattedMessage
+              id='app.assign.help-message.todo'
+              values={{budget: <FormattedNumber value={Budget} style="currency" currency="EUR" />}}
+            />
+            </p>
           </div>
 
           <div className="mdl-card__actions mdl-card--border filter-list">
             <Link to='/' className='restart mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
-              Find even more programs
+            <FormattedMessage id='app.assign.restart'/>
             </Link>
           </div>
         </div>

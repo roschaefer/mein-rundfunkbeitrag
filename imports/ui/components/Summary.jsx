@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 import InvoiceItem from './InvoiceItem.jsx';
+import { FormattedMessage } from 'react-intl';
 
 export default class Summary extends Component {
   likedSelections() {
@@ -24,8 +25,12 @@ export default class Summary extends Component {
       <table className="invoice mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
           <tr>
-            <th className="mdl-data-table__cell--non-numeric"><strong className='program-counter'>{this.likedSelections().length}</strong> Programs</th>
-            <th data-field="price">Amount</th>
+            <th className="mdl-data-table__cell--non-numeric">
+              <FormattedMessage id='app.assign.invoice-table.programs' values={{selectionCounter: this.likedSelections().length}}/>
+            </th>
+            <th data-field="price">
+              <FormattedMessage id='app.assign.invoice-table.amount' />
+            </th>
           </tr>
         </thead>
         <tbody>

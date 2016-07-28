@@ -12,6 +12,13 @@ export const strings = {
     'app.decide.help-message.todo': 'Simply click on {yes} or {no}. If you are not sure, choose {no}.',
     'app.decide.answer.yes': 'Yes',
     'app.decide.answer.no': 'No',
+    'app.assign.title': 'Summary',
+    'app.assign.help-message.intention': 'You\'re done! Very soon, you can say how much money should be spend on each program on this page. You will be able to spread money across multiple programs or specify the amount individually.',
+    'app.assign.help-message.todo': 'For now, we distribute your budget of {budget}/month equally to your chosen programs.',
+    'app.assign.restart': 'Find even more programs',
+    'app.assign.invoice-table.programs': '{selectionCounter, plural, one {# program} other {# programs}}',
+    'app.assign.invoice-table.amount': 'Amount',
+
 
   },
 
@@ -28,5 +35,11 @@ export const strings = {
     'app.decide.help-message.todo': 'Klick einfach auf {yes} oder {no}. Wenn Du nicht sicher bist, klick auf {no}.',
     'app.decide.answer.yes': 'Ja',
     'app.decide.answer.no': 'Nein',
+    'app.assign.title': 'Zusammenfassung',
+    'app.assign.help-message.intention': 'Das war\'s! Bald kannst Du auf dieser Seite angeben wieviel für jedes Programm ausgegeben werden soll. Es wird möglich sein, Beträge auf Gruppen von Programmen zu verteilen oder einzelnen Programmen genau zuzuweisen.',
+    'app.assign.help-message.todo': 'Für\'s erste verteilen wir dein Budget von {budget} pro Monat gleich auf alle ausgewählte Programme.',
+    'app.assign.restart': 'Noch mehr Programme finden',
+    'app.assign.invoice-table.programs': '{selectionCounter, plural, one {# Programm} other {# Programme}}',
+    'app.assign.invoice-table.amount': 'Betrag',
   }
 };
