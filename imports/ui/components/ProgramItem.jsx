@@ -28,7 +28,6 @@ export class ProgramDecision extends Component {
   render() {
     return (
       <button className={this.classes()} href="#" onClick={this.handleClick.bind(this)}>
-        // beautiful
         <FormattedMessage id={'app.decide.answer.' + this.props.answer.toLowerCase()}/>
       </button>
     )

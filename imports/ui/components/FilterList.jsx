@@ -45,7 +45,9 @@ export default class FilterList extends Component {
     return (
       <div className="help-card mdl-card mdl-shadow--2dp mdl-cell--8-col">
         <div className="mdl-card__title">
-          <h2 className="mdl-card__title-text">Filters</h2>
+          <h2 className="mdl-card__title-text">
+          <FormattedMessage id='app.filter.select-filter.title' />
+          </h2>
         </div>
         <div className="mdl-card__supporting-text help-message">
           <p>

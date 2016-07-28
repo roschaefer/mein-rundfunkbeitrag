@@ -8,7 +8,7 @@ import { IntlProvider } from 'react-intl';
 import { addLocaleData  } from 'react-intl';
 import { en } from 'react-intl/locale-data/en';
 import { de } from 'react-intl/locale-data/de';
-import { strings } from './strings.js';
+import { strings } from '../../locales/strings.js';
 addLocaleData([en,de]);
 
 const locale = navigator.language;
