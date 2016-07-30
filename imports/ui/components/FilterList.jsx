@@ -59,7 +59,7 @@ export default class FilterList extends Component {
               <FormattedMessage id='app.filter.select-filter.label.category' />
             </div>
               { this.renderFilters() }
-            <div className="mdl-card__supporting-text">
+            <div className="program-counter mdl-card__supporting-text">
               <FormattedMessage id='app.filter.select-filter.result-set-size' values={{programCounter:  this.relevantPrograms().length }}/>
             </div>
 

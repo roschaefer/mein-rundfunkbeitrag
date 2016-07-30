@@ -25,7 +25,7 @@ export default class Summary extends Component {
       <table className="invoice mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
           <tr>
-            <th className="mdl-data-table__cell--non-numeric">
+            <th className="program-counter mdl-data-table__cell--non-numeric">
               <FormattedMessage id='app.assign.invoice-table.programs' values={{selectionCounter: this.likedSelections().length}}/>
             </th>
             <th data-field="price">

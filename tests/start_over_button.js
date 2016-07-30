@@ -47,7 +47,7 @@ describe('Repeat process', function() {
         browser.waitForExist('.restart', 1000);
         browser.click('.restart');
         browser.waitForVisible('.filter-list');
-        expect(browser.getText('.program-counter')).to.eq('1');
+        expect(browser.getText('.program-counter')).to.eq('1 program matches the criteria');
       });
     });
   });
