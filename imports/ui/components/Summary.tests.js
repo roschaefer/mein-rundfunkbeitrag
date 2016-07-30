@@ -3,13 +3,14 @@
 import { Meteor } from 'meteor/meteor';
 import { Factory } from 'meteor/dburles:factory';
 import React from 'react';
-import { shallow } from 'enzyme';
+import {  mount } from 'enzyme';
 import { expect } from 'meteor/practicalmeteor:chai';
 import Summary from './Summary.jsx';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { Programs } from '../../api/programs';
 import { Selections } from '../../api/selections';
 import StubCollections from 'meteor/hwillson:stub-collections';
+import { mountWrapIntl } from './helpers/intl.test';
 
 
 if (Meteor.isClient) {
@@ -51,15 +52,15 @@ if (Meteor.isClient) {
 
         it('shows selected programs', function () {
           const selections = [selection];
-          const item = shallow(<Summary selections={selections} />);
-          expect(item.find('.program-counter').text()).to.eq('1');
+          const item = mountWrapIntl(<Summary selections={selections} />);
+          expect(item.find('.program-counter').text()).to.eq('1 program');
         });
 
         it('does not show selected programs of other users', function () {
           selection.userId = "whatever";
           const selections = [selection];
-          const item = shallow(<Summary selections={selections} />);
-          expect(item.find('.program-counter').text()).to.eq('0');
+          const item = mountWrapIntl(<Summary selections={selections} />);
+          expect(item.find('.program-counter').text()).to.eq('0 programs');
         });
 
         it('does not show disliked programs', function () {
@@ -72,8 +73,8 @@ if (Meteor.isClient) {
             return program;
           };
           const selections = [selection, disliked_selection];
-          const item = shallow(<Summary selections={selections} />);
-          expect(item.find('.program-counter').text()).to.eq('1');
+          const item = mountWrapIntl(<Summary selections={selections} />);
+          expect(item.find('.program-counter').text()).to.eq('1 program');
         });
       });
     });

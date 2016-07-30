@@ -10,7 +10,7 @@ import { Programs } from '../../api/programs';
 import { Selections } from '../../api/selections';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { sinon } from 'meteor/practicalmeteor:sinon';
-
+import { mountWrapIntl } from './helpers/intl.test';
 
 if (Meteor.isClient) {
   describe('Feed', function ()  {
@@ -22,8 +22,8 @@ if (Meteor.isClient) {
       const program = Factory.build('program');
       const programs = [program];
       const selections = [];
-      const item = shallow(<Feed programs={programs} selections={selections} />);
-      expect(item.text()).to.contain('Remaining Programs: 1');
+      const item = mountWrapIntl(<Feed programs={programs} selections={selections} />);
+      expect(item.text()).to.contain('1 program remains');
     });
 
     it('filters programs by category', function () {
@@ -33,8 +33,8 @@ if (Meteor.isClient) {
         Factory.build('program', {title: 'OUT'}),
       ];
       const selections = [];
-      const item = mount(<Feed programs={programs} selections={selections} category={category} />);
-      expect(item.text()).to.contain('Remaining Programs: 1');
+      const item = mountWrapIntl(<Feed programs={programs} selections={selections} category={category} />);
+      expect(item.text()).to.contain('1 program remains');
       expect(item.text()).to.contain('IN');
       expect(item.text()).not.to.contain('OUT');
     });
@@ -63,7 +63,7 @@ if (Meteor.isClient) {
         it('does not show programs with own selection', function () {
           selection = Selections._transform(Factory.build('selection', {userId: uid, programId: chosen_program._id}));
           selections = [selection];
-          const item = mount(<Feed programs={programs} selections={selections} />);
+          const item = mountWrapIntl(<Feed programs={programs} selections={selections} />);
           expect(item.text()).to.contain('Heute Show');
           expect(item.text()).not.to.contain('Neo Magazin Royale');
         });
@@ -71,7 +71,7 @@ if (Meteor.isClient) {
         it('selections do not interfere with other users', function () {
           selection = Selections._transform(Factory.build('selection', {userId: null, programId: chosen_program._id}));
           selections = [selection];
-          const item = mount(<Feed programs={programs} selections={selections} />);
+          const item = mountWrapIntl(<Feed programs={programs} selections={selections} />);
           expect(item.text()).to.contain('Heute Show');
           expect(item.text()).to.contain('Neo Magazin Royale');
         });

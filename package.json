@@ -30,6 +30,7 @@
     "eslint-plugin-jsx-a11y": "^1.5.3",
     "eslint-plugin-meteor": "^3.6.0",
     "eslint-plugin-react": "^5.2.1",
+    "intl": "^1.2.4",
     "react-addons-test-utils": "^15.1.0"
   },
   "eslintConfig": {

@@ -9,6 +9,7 @@ import FilterList from './FilterList.jsx';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import StubCollections from 'meteor/hwillson:stub-collections';
 import { Programs } from '../../api/programs.js';
+import { mountWrapIntl } from './helpers/intl.test';
 
 
 if (Meteor.isClient) {
@@ -27,7 +28,7 @@ if (Meteor.isClient) {
       const programs = [1,2,3].map((index) => {
         return Factory.build('program')
       });
-      const item = mount(<FilterList programs={programs} categories={[]}/>);
+      const item = mountWrapIntl(<FilterList programs={programs} categories={[]}/>);
       expect(item.text()).to.contain('3 programs match the criteria');
     });
 
@@ -47,7 +48,7 @@ if (Meteor.isClient) {
           Factory.create('program', {categoryId: categories[0]._id}),
         ]
         const initialFilters = [categories[0]];
-        const item = mount(<FilterList programs={programs} initialFilters={initialFilters} categories={[]}/>);
+        const item = mountWrapIntl(<FilterList programs={programs} initialFilters={initialFilters} categories={[]}/>);
         expect(item.text()).to.contain('2 programs match the criteria');
       });
     });

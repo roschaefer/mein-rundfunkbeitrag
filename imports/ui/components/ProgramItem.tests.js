@@ -12,6 +12,7 @@ import ProgramDecision from './ProgramItem.jsx';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { Programs } from '../../api/programs';
 import { Selections } from '../../api/selections';
+import { mountWrapIntl } from './helpers/intl.test';
 
 if (Meteor.isClient) {
   describe('ProgramItem', function () {
@@ -28,7 +29,7 @@ if (Meteor.isClient) {
     describe('<DecisionBox>', function () {
       it('is visible', function () {
         const program = Programs._transform(Factory.build('program'));
-        const item = mount(<ProgramItem program={program} />);
+        const item = mountWrapIntl(<ProgramItem program={program} />);
         expect(item.text()).to.contain('Yes');
       });
     });
@@ -40,7 +41,7 @@ if (Meteor.isClient) {
         // TODO: implement
         sinon.stub(choose, 'call');
         const program = Programs._transform(Factory.build('program', { title: 'Heute-Show'}));
-        const item = mount(<ProgramItem program={program} />);
+        const item = mountWrapIntl(<ProgramItem program={program} />);
         item.find("[class='answer-yes']").simulate('click');
         sinon.assert.calledWith(choose.call, {
           programId: program._id,
