@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
+import { FormattedMessage } from 'react-intl';
 
 
 export class DecisionBox extends Component {
@@ -27,7 +28,7 @@ export class ProgramDecision extends Component {
   render() {
     return (
       <button className={this.classes()} href="#" onClick={this.handleClick.bind(this)}>
-        {this.props.answer}
+        <FormattedMessage id={'app.decide.answer.' + this.props.answer.toLowerCase()}/>
       </button>
     )
   }

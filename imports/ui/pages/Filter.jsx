@@ -7,6 +7,8 @@ import FilterList from '../components/FilterList.jsx';
 import { Programs } from '../../api/programs.js';
 import { Categories } from '../../api/categories.js';
 
+import { FormattedNumber, FormattedMessage } from 'react-intl';
+
 export default class Filter extends Component {
 
   render() {
@@ -17,13 +19,10 @@ export default class Filter extends Component {
       <div className="help-card mdl-card mdl-shadow--2dp mdl-cell--8-col">
         <div className="mdl-card__supporting-text help-message">
           <p>
-            Did you know that Germany spends 8 <em>billion</em> Euros every year on public broadcasting?
-            Financed by monthly contributions of the German public.
+          <FormattedMessage id='app.welcome' values={{amount: <em>8</em>}} />
           </p>
           <p>
-            However, nobody has a say in the programme design.
-            We want to change that: with our tool, you can make your voice heard
-            and propose on which shows your money should be spent.
+          <FormattedMessage id='app.purpose' />
           </p>
         </div>
       </div>

@@ -22,11 +22,11 @@ describe('Filter by category', function() {
     it('get reduced when filters are selected', function () {
       browser.url(base_url);
       browser.waitUntil(function () {
-        return browser.getText('.program-counter') === '3'
+        return browser.getText('.program-counter') === '3 programs match the criteria'
       }, 1000, 'expected 3 programs matching the criteria');
       browser.click('label[for="News"]');
       browser.waitUntil(function () {
-        return browser.getText('.program-counter') === '2'
+        return browser.getText('.program-counter') === '2 programs match the criteria'
       }, 1000, 'expected 2 programs matching the criteria');
     });
   });
