@@ -31,14 +31,14 @@ export default class Assign extends Component {
             />
             </p>
           </div>
-
-          <div className="mdl-card__actions mdl-card--border filter-list">
-            <Link to='/' className='restart mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
-            <FormattedMessage id='app.assign.restart'/>
-            </Link>
-          </div>
         </div>
         <Summary selections={this.props.selections} />
+
+        <div className="mdl-card mdl-shadow--2dp mdl-cell--8-col continue-card">
+          <Link to='/' className='restart mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
+          <FormattedMessage id='app.assign.restart'/>
+          </Link>
+        </div>
       </div>
     );
   }

@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Link } from 'react-router';
 import Feed from '../components/Feed.jsx';
+import { Link } from 'react-router';
 
 import { Programs } from '../../api/programs.js';
 import { Selections } from '../../api/selections.js';
@@ -20,9 +20,11 @@ export default class Decide extends Component {
     return (
       <div>
         <Feed programs={this.props.programs} selections={this.props.selections} category={this.getCategory()} />
-        <Link to='/assign' className='continue mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
-          <FormattedMessage id='app.decide.continue-to-assign' />
-        </Link>
+        <div className="mdl-card mdl-shadow--2dp mdl-cell--8-col continue-card">
+          <Link to='/assign' className='continue mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--accent'>
+            <FormattedMessage id='app.decide.continue-to-assign' />
+          </Link>
+        </div>
       </div>
     );
   }

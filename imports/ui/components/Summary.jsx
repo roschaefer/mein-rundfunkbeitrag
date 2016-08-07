@@ -21,7 +21,7 @@ export default class Summary extends Component {
 
   render() {
     return (
-    <div className='mdl-cell--8-col'>
+    <div className="mdl-card mdl-cell--8-col invoice-card">
       <table className="invoice mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
           <tr>

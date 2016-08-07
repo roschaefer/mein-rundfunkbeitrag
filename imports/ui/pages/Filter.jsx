@@ -13,25 +13,7 @@ export default class Filter extends Component {
 
   render() {
     return (
-      <div className='mdl-grid'>
-
-
-      <div className="help-card mdl-card mdl-shadow--2dp mdl-cell--8-col">
-        <div className="mdl-card__supporting-text help-message">
-          <p>
-          <FormattedMessage id='app.welcome' values={{amount: <em>8</em>}} />
-          </p>
-          <p>
-          <FormattedMessage id='app.purpose' />
-          </p>
-        </div>
-      </div>
-
-
-
-
       <FilterList categories={this.props.categories} programs={this.props.programs}/>
-      </div>
     );
   }
 }

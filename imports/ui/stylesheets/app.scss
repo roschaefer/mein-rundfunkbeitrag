@@ -1,8 +1,13 @@
 @import "{}/node_modules/animatewithsass/animate.scss";
+
+@import url( 'https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,500italic,700italic,900,900italic');
 @import '{zodiase:mdl-assets}/src/_color-definitions.scss';
 $color-primary: $palette-teal-500;
+@import '{zodiase:mdl-assets}/src/_variables.scss';
+$performance_font: $preferred_font;
 @import '{zodiase:mdl}/theme';
 $color-primary: unquote("rgb(#{$color-primary})");
+$color-background: unquote("rgb(#{$palette-grey-100})");
 
 .help-message {
   @include fadeIn();
@@ -27,7 +32,7 @@ $color-primary: unquote("rgb(#{$color-primary})");
   }
 
   .selection-choose + .selection-choose {
-  margin-left: 30px;
+    margin-left: 30px;
   }
 }
 
@@ -39,12 +44,24 @@ $color-primary: unquote("rgb(#{$color-primary})");
   padding-right: 30px;
 }
 
-.continue {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
 footer {
   margin-top: 60px;
 }
 
+.mdl-card {
+  margin: 0 auto;
+}
+
+.invoice {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.continue-card,
+.invoice-card {
+  min-height: 0px;
+}
+
+.mdl-layout__content {
+  background-color:$color-background;
+}
