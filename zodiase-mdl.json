@@ -1,6 +1,3 @@
 {
-  "theme": {
-    "primary": "teal",
-    "accent": "pink"
-  }
+  "theme": false
 }

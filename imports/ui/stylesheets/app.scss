@@ -1,8 +1,8 @@
 @import "{}/node_modules/animatewithsass/animate.scss";
-$teal: #009688;
-$color-primary: $teal;
-$pink: #E91E63;
-$color-accent: $pink;
+@import '{zodiase:mdl-assets}/src/_color-definitions.scss';
+$color-primary: $palette-teal-500;
+@import '{zodiase:mdl}/theme';
+$color-primary: unquote("rgb(#{$color-primary})");
 
 .help-message {
   @include fadeIn();
@@ -47,3 +47,4 @@ $color-accent: $pink;
 footer {
   margin-top: 60px;
 }
+
