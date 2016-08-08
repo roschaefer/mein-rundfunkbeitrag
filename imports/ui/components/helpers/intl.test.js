@@ -12,7 +12,7 @@ import 'intl';
 import { strings } from '../../../locales/strings.js';
 
 // You can pass your messages to the IntlProvider. Optional: remove if unneeded.
-const messages = strings['en-US']
+const messages = strings['en']
 
 // Create the IntlProvider to retrieve context for wrapping around.
 const intlProvider = new IntlProvider({ locale: 'en', messages }, {});

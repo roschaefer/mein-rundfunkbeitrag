@@ -1,5 +1,5 @@
 export const strings = {
-  'en-US':{
+  'en':{
     'app.welcome': 'Did you know that Germany spends {amount} billion Euros every year on public broadcasting?  Financed by monthly contributions of the German public.',
     'app.purpose': 'However, nobody has a say in the programme design. We want to change that: with our tool, you can make your voice heard and propose on which shows your money should be spent.',
     'app.filter.select-filter': 'There are so many programs available. In order to narrow down choices, click on the filter options below.',
@@ -24,7 +24,7 @@ export const strings = {
 
   },
 
-  'de-DE':{
+  'de':{
     'app.welcome': 'Wusstest Du, dass Deutschland jedes Jahr {amount} Milliarden Euro für den öffentlichen Rundfunk ausgibt? Finanziert wird das unter Anderem mit Deinem monatlichen Rundfunkbeitrag.',
     'app.purpose': 'Schade, dass keiner mitbestimmen darf. Das wollen wir ändern: Mit unserem Tool kannst Du Deiner Stimme Gehör verschaffen und Du selbst kannst darüber entscheiden, wohin Deine Gebühren fließen sollen.',
     'app.filter.select-filter': 'Es gibt so viele unterschiedliche Programme. Um das Angebot etwas einzuschränken, klick einfach unten auf die Filter-Optionen.',
