@@ -12,7 +12,8 @@ import { strings } from '../../locales/strings.js';
 addLocaleData([en,de]);
 
 const locale = navigator.language;
-const messages = strings[locale] ? strings[locale] : strings['de-DE']
+const lang = locale.split('-')[0]
+const messages = strings[lang] ? strings[lang] : strings['de']
 
 export const renderRoutes = () => (
   <IntlProvider locale={locale} messages={messages}>
